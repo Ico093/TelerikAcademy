@@ -1,0 +1,121 @@
+﻿<Window x:Class="Kino.AdminPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AdminPanel" Height="600" Width="800" Background="#FF57CCC3">
+    <Window.Resources>
+        <Style x:Key="Buttons" TargetType="Button">
+            <Setter Property="Background" Value="#FF21AEBC"/>
+            <Setter Property="BorderBrush" Value="Gold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="#FF2D2D30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="0,275,0,0"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="{TemplateBinding Padding}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        CornerRadius="5"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF21AEBC" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.25" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Gold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Label Content="Projections" HorizontalAlignment="Center" FontFamily="Pristina" FontSize="30" Margin="337,0,336,520" Width="119"/>
+        <Grid Background="#FF57CCC3" Margin="0,50,0,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="500"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListView Name="MoviesInfo" Grid.Row="0" ItemsSource="{Binding}" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="#FF57CCC3" BorderBrush="Gold" BorderThickness="2" Margin="0,33,0,43">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Style.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="True" />
+                                    <Condition Property="IsMouseOver" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Background" Value="{x:Null}" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Name:" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=.MovieName}" Background="#FF57CCC3" TextWrapping="WrapWithOverflow" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header ="Price:" DisplayMemberBinding="{Binding Path=.Price}" Width="50"></GridViewColumn>
+                            <GridViewColumn Header="Projections:" Width="180">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ListBox ItemsSource="{Binding Path=.Projections}">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                    </StackPanel>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Path=.ProjectionHour}"/>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Controls:">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <WrapPanel>
+                                            <Button Content="Add Projection" Style="{StaticResource Buttons}" Click="OnAddProjectionButton_Click" DataContext="{Binding Path=.MovieName}" Margin="5"/>
+                                            <Button Content="Delete Projection" Style="{StaticResource Buttons}" DataContext="{Binding Path=.MovieName}" Click="OnDeleteProjectionButton_Click" Margin="5"/>
+                                            <Button Content="Delete Movie" Style="{StaticResource Buttons}" DataContext="{Binding Path=.MovieName}" Click="RemoveMovie_Click" Margin="5"/>
+                                        </WrapPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Style="{StaticResource Buttons}" Content="Add Movie"  HorizontalAlignment="Left" Margin="10,470,0,0" Click="OnAddMovieButton_Click" Grid.RowSpan="2"/>
+            <Button Style="{StaticResource Buttons}" Content="Back" HorizontalAlignment="Right" Margin="0,470,10,0" Click="OnBackButton_Click" Grid.RowSpan="2"/>
+            <Button Style="{StaticResource Buttons}" Content="Statistics" HorizontalAlignment="Left" Margin="340,470,0,0" VerticalAlignment="Top" Width="74" Click="ShowStatistics_Click" Grid.RowSpan="2"/>
+        </Grid>
+    </Grid>
+</Window>

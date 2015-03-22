@@ -1,0 +1,114 @@
+﻿body,
+div,
+ul,
+li,
+table,
+tr,
+td,
+a,
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+}
+body {
+  font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace;
+  font-size: 16px;
+}
+body #wrapper {
+  width: 525px;
+}
+body #wrapper img {
+  width: 15px;
+  height: 15px;
+}
+body #wrapper ul {
+  margin: 25px;
+}
+body #wrapper ul > li {
+  display: inline-block;
+  border: 1px solid black;
+  border-right: none;
+  background: -moz-linear-gradient(top, #ababab 0%, #ababab 0%, 0% 30%, #d8d8d8 80%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ababab), color-stop(0%, 0%), color-stop(30%, 0%), color-stop(80%, #d8d8d8));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #ababab 0%, #ababab 0%, #ababab 30%, #d8d8d8 80%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #ababab 0%, #ababab 0%, #ababab 30%, #d8d8d8 80%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #ababab 0%, #ababab 0%, #ababab 30%, #d8d8d8 80%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #ababab 0%, #ababab 0%, #ababab 30%, #d8d8d8 80%);
+  /* W3C */
+
+}
+body #wrapper ul > li:first-of-type {
+  border-top-left-radius: 15px;
+}
+body #wrapper ul > li:last-of-type {
+  border-top-right-radius: 15px;
+  border-right: 1px solid black;
+}
+body #wrapper ul > li:hover {
+  border-bottom-color: #d8d8d8;
+}
+body #wrapper ul > li:hover div {
+  display: inline-block;
+  width: 497px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 58px;
+}
+body #wrapper ul > li:hover div ul {
+  margin: 0;
+  margin-left: 25px;
+  border: 1px solid black;
+  border-top: none;
+}
+body #wrapper ul > li:hover div ul > li {
+  width: 470px;
+  border: none;
+  border-radius: 0px;
+  background: #d8d8d8;
+}
+body #wrapper ul > li:hover div ul > li:first-of-type {
+  border-top-left-radius: 0;
+}
+body #wrapper ul > li:hover div ul > li:last-of-type {
+  border-top-right-radius: 0;
+  border: none;
+}
+body #wrapper ul > li:hover div ul > li a {
+  padding-bottom: 0;
+}
+body #wrapper ul > li:hover div ul > li a img {
+  margin-top: 2px;
+}
+body #wrapper ul > li:hover div ul > li a span {
+  font-size: 16px;
+  padding-left: 5px;
+}
+body #wrapper ul > li:hover div ul > li a span:hover {
+  text-decoration: underline;
+}
+body #wrapper ul > li:hover div ul > li a span strong {
+  color: #666464;
+}
+body #wrapper ul > li a {
+  display: block;
+  text-decoration: none;
+  font-size: 19px;
+  padding: 5px 15px 5px 16px;
+  color: #947f7b;
+}
+body #wrapper .content {
+  display: none;
+}

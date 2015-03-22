@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="04.CSS/04.CSS.css" rel="stylesheet" />
+</head>
+
+<body>
+    <section>
+        <div id="frame">
+            <div id="header">
+                <div id="img">
+                    <img src="img/Calculator_Windows_7_Icon.png" />
+                </div>
+
+                <div id="calculatorText">
+                    Calculator
+                </div>
+
+                <div id="minimize">
+                    <button type="reset">_</button>
+                </div>
+
+                <div id="maximize">
+                    <button type="button" disabled="disabled">□</button>
+                </div>
+
+                <div id="exit">
+                    <button type="button">×</button>
+                </div>
+
+            </div>
+            <div id="content">
+                <div id="menu">
+                    <ul>
+                        <li>View</li>
+                        <li>Edit</li>
+                        <li>Help</li>
+                    </ul>
+                </div>
+                <div id="calculator">
+                    <div id="result">
+                        <input type="text" value="8854455" />
+                    </div>
+                    <div id="bits">
+                        <ul class="littlePad">
+                            <li>0000</li>
+                            <li>0000</li>
+                            <li>0000</li>
+                            <li>0000</li>
+                            <li>0000</li>
+                            <li>0000</li>
+                            <li>0000</li>
+                            <li>0000</li>
+                        </ul>
+                        <ul>
+                            <li class="largePad">63</li>
+                            <li class="largishPad">47</li>
+                            <li>32</li>
+                        </ul>
+                        <ul class="littlePad">
+                            <li>0000</li>
+                            <li>0000</li>
+                            <li>1000</li>
+                            <li>0111</li>
+                            <li>0001</li>
+                            <li>1011</li>
+                            <li>1011</li>
+                            <li>0111</li>
+                        </ul>
+                        <ul>
+                            <li class="largePad">31</li>
+                            <li class="largishPad">15</li>
+                            <li id="tupaNula">0</li>
+                        </ul>
+                    </div>
+                    <div id="radios">
+                        <div>
+                            <form class="down">
+                                <input type="radio" name="numeralSystem" checked="checked" value="Hex" /><label>Hex</label>
+                                <br />
+                                <input type="radio" name="numeralSystem" value="Dec  " /><label>Dec</label>
+                                <br />
+                                <input type="radio" name="numeralSystem" value="Oct" /><label>Oct</label>
+                                <br />
+                                <input type="radio" name="numeralSystem" value="Bin" /><label>Bin</label>
+                                <br />
+                            </form>
+                        </div>
+                        <div>
+                            <form class="down">
+                                <input type="radio" name="whatWord" checked="checked" value="Qword" /><label>Qword</label>
+                                <br />
+                                <input type="radio" name="whatWord" value="Dword" /><label>Dword</label>
+                                <br />
+                                <input type="radio" name="whatWord" value="Word" /><label>Word</label>
+                                <br />
+                                <input type="radio" name="whatWord" value="Byte" /><label>Byte</label>
+                                <br />
+                            </form>
+                        </div>
+                    </div>
+                    <div id="functionsAndNumbers">
+                        <div class="row">
+                            <button disabled="disabled" class="disabled">&nbsp;</button>
+                            <button class="normalButton lowerSize">(</button>
+                            <button class="normalButton lowerSize">RoL</button>
+                            <button class="normalButton lowerSize">Or</button>
+                            <button class="normalButton lowerSize">Lsh</button>
+                            <button class="normalButton lowerSize">Not</button>
+                        </div>
+                        <div class="row">
+                            <button class="normalButton lowerSize">Mod</button>
+                            <button class="normalButton lowerSize">)</button>
+                            <button class="normalButton lowerSize">RoR</button>
+                            <button class="normalButton lowerSize">Xor</button>
+                            <button class="normalButton lowerSize">Rsh</button>
+                            <button class="normalButton lowerSize">And</button>
+                        </div>
+                        <div class="row">
+                            <button disabled="disabled" class="disabled">A</button>
+                            <button disabled="disabled" class="disabled">B</button>
+                            <button disabled="disabled" class="disabled">C</button>
+                            <button disabled="disabled" class="disabled">D</button>
+                            <button disabled="disabled" class="disabled">E</button>
+                            <button disabled="disabled" class="disabled">F</button>
+                        </div>
+                        <div class="row">
+                            <button class="disabledWithHover lowerSize">MC</button>
+                            <button class="normalButton" ><span id="backspace">←</span></button>
+                            <button class="number">7</button>
+                            <button class="number">4</button>
+                            <button class="number">1</button>
+                        </div>
+                        <div class="row">
+                            <button class="disabledWithHover lowerSize">MR</button>
+                            <button class="normalButton lowerSize">CE</button>
+                            <button class="number">8</button>
+                            <button class="number">5</button>
+                            <button class="number">2</button>
+                            <button id="zero" class="number">0</button>
+                        </div>
+                        <div class="row">
+                            <button class="disabledWithHover lowerSize">MS</button>
+                            <button class="normalButton lowerSize">C</button>
+                            <button class="number">9</button>
+                            <button class="number">6</button>
+                            <button class="number">3</button>
+                            <button disabled="disabled" class="disabled">.</button>
+                        </div>
+                        <div class="row">
+                            <button class="disabledWithHover lowerSize">M+</button>
+                            <button class="normalButton lowerSize">±</button>
+                            <button class="normalButton">/</button>
+                            <button class="normalButton">*</button>
+                            <button class="normalButton">-</button>
+                            <button class="normalButton">+</button>
+                        </div>
+                        <div class="row">
+                            <button class="disabledWithHover lowerSize">M-</button>
+                            <button disabled="disabled" class="disabled lowerSize">√</button>
+                            <button disabled="disabled" class="disabled lowerSize">%</button>
+                            <button disabled="disabled" class="disabled" id="oneDevidedByX">1/x</button>
+                            <button id="equal" class="normalButton">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

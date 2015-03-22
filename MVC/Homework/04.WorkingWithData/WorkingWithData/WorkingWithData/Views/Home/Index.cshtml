@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @if (User.Identity.IsAuthenticated)
+    {
+        using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <div>
+                @Html.Label("textToPost", "Text:")
+                @Html.TextBox("textToPost")
+            </div>
+            <div>
+                @Html.Label("tagsToPost", "Tags:")
+                @Html.TextBox("tagsToPost")
+            </div>
+            <input type="submit" name="name" value="Submit" />
+        }
+    }
+    else
+    {
+        <div>Please register!</div>
+    }
+</div>

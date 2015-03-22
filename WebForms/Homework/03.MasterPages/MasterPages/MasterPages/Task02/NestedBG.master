@@ -1,0 +1,7 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Task02/Main.Master" AutoEventWireup="true" CodeBehind="NestedBG.master.cs" Inherits="MasterPages.Task02.NestedBG" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainPlaceHolder" runat="server">
+    <div>На български</div>
+
+    <asp:ContentPlaceHolder ID="MainPlaceHolderForNested" runat="server" />
+</asp:Content>

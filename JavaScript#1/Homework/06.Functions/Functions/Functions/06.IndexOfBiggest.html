@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that checks if the element at given position in given array of integers is bigger than its two neighbors (when such exist).</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text1">Array:</label>
+    <input type="text" id="text1" />
+    <label for="text2">Index:</label>
+    <input type="text" id="text2" />
+    <button type="button" onclick="check()">Is it bigger than its neighbours?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function check()
+        {
+            debugger;
+            var array = parseSeq(document.getElementById("text1").value);
+            var index = parseInt(document.getElementById("text2").value);
+
+            jsConsole.writeLine(bigger(array,index).toString());
+        }
+
+        function bigger(array, index) {
+            jsConsole.writeLine(array.join(", "));
+
+            if (index > 0 && index < array.length-1) {
+                if(array[index-1]<array[index]&&array[index+1]<array[index])
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+
+        function parseSeq(seqToParse) {
+            var seq = new Array();
+            seqToParse = seqToParse.split(",");
+            for (var i = 0; i < seqToParse.length; i++) {
+                seqToParse[i] = seqToParse[i].toString().trim();
+                if (seqToParse[i] != "") {
+                    seq.push(parseInt(seqToParse[i]));
+                }
+            }
+            return seq;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a JavaScript function that replaces in a HTML document given as string all the tags <a href="…">…</a> with corresponding tags [URL=…]…/URL].</title>
+<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text" />
+    <button type="button" onclick="Parse()">Parse url!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Parse() {
+            var url = document.getElementById("text").value.replace(new RegExp('<a href="',"g"),"[URL=").replace(new RegExp('">',"g"),"]").replace(new RegExp("</a>","g"),"[/URL]");
+           
+            jsConsole.writeLine(url);
+            return url;
+        }
+    </script>
+</body>
+</html>

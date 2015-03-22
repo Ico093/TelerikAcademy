@@ -1,0 +1,50 @@
+ body, header, section, footer, article, h1, h2, h3, h4, h5, h6, input, button, label, p, fieldset, nav, ul, li, a, span, strong, em {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        img {
+        display:block;
+        }
+
+        .notzoomed img {
+            float: left;
+            width: 260px;
+            height: 210px;
+            margin-left: 6px;
+        }
+
+        .zoomed img:active {
+            margin-top:220px;
+            width: 527px;
+            height: 420px;
+            background:black;
+            left:6px;
+        }
+
+        .zoomed img {
+            position: absolute;
+            width: 260px;
+            height: 210px;
+        }
+
+        .cheetah1 {
+            left: 6px;
+        }
+
+        .kitten1 {
+            left: 272px;
+        }
+
+        .ladyBird1 {
+            left: 538px;
+        }
+
+        .polarBear1 {
+            left: 804px;
+        }
+
+        .tiger1 {
+            left: 1070px;
+        }

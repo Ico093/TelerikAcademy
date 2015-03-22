@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write script that asks for a digit and depending on the input shows the name of that digit (in English) using a switch statement.</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-digit">Digit:</label>
+    <input type="text" id="tb-digit" />
+    <button type="button" onclick="ViewName()">View name?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function ViewName() {
+            var digit = jsConsole.readInteger("#tb-digit");
+
+            switch (digit) {
+                case 0:
+                    {
+                        jsConsole.writeLine(digit + " Zero");
+                        break;
+                    }
+                case 1:
+                    {
+                        jsConsole.writeLine(digit + " One");
+                        break;
+                    }
+                case 2:
+                    {
+                        jsConsole.writeLine(digit + " Two");
+                        break;
+                    }
+                case 3:
+                    {
+                        jsConsole.writeLine(digit + " Three");
+                        break;
+                    }
+                case 4:
+                    {
+                        jsConsole.writeLine(digit + " Four");
+                        break;
+                    }
+                case 5:
+                    {
+                        jsConsole.writeLine(digit + " Five");
+                        break;
+                    }
+                case 6:
+                    {
+                        jsConsole.writeLine(digit + " Six");
+                        break;
+                    }
+                case 7:
+                    {
+                        jsConsole.writeLine(digit + " Seven");
+                        break;
+                    }
+                case 8:
+                    {
+                        jsConsole.writeLine(digit + " Eight");
+                        break;
+                    }
+                case 9:
+                    {
+                        jsConsole.writeLine(digit + " Nine");
+                        break;
+                    }
+                default:
+                    {
+                        jsConsole.writeLine("Not a digit!");
+                        break;
+                    }
+            }
+        }
+    </script>
+</body>
+</html>

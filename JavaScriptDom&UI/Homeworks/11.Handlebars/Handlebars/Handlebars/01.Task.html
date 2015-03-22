@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/handlebars.js"></script>
+</head>
+<body>
+    <script id="courses-template" type="text/x-handlebars-template">
+        <div class='courses'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No:</th>
+                        <th>Title</th>
+                        <th>Date #1</th>
+                        <th>Date #2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each courses}}
+                    <tr>
+                        <td>{{@index}}</td>
+                        <td>{{title}}</td>
+                        <td>{{date1}}</td>
+                        <td>{{date2}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </script>
+
+    <script>
+        var coursesTemplateNode = document.getElementById("courses-template");
+
+        var courses = [{ title: 'Course introduction', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'Document Object Model', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'HTML5 Canvas', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'KineticJS Overview', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'SVG and RaphaelJS', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'Animations with Canvas and SVG', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'DOM operations', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'Event model', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'jQuery Overview', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'HTML Templates', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'Exam preparation', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'Exam', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' },
+                        { title: 'Teamwork Defence', date1: 'Wed 18:00, 28-May-2014', date2: 'Thu 14:00, 29-May-2014' }];
+
+        var htmlTemplate = coursesTemplateNode.innerHTML,
+        coursesTemplate = Handlebars.compile(htmlTemplate);
+
+        document.body.innerHTML = coursesTemplate({ courses: courses });
+
+    </script>
+</body>
+</html>

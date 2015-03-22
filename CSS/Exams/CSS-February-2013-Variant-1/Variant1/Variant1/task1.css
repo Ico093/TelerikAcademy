@@ -1,0 +1,96 @@
+﻿#wrapper,
+body,
+aside,
+ul,
+li,
+a,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  line-height: 10px;
+}
+body #wrapper {
+  width: 960px;
+  font-size: 16px;
+  font-family: Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+}
+body #wrapper ul {
+  background: -moz-linear-gradient(top, #d29bff 0%, #8977ff 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d29bff), color-stop(100%, #8977ff));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #d29bff 0%, #8977ff 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #d29bff 0%, #8977ff 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #d29bff 0%, #8977ff 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #d29bff 0%, #8977ff 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87e0fd', endColorstr='#05abe0', GradientType=0);
+  /* IE6-8 */
+
+  position: absolute;
+  display: block;
+  list-style-type: none;
+  margin: 10px 0px 0px 20px;
+  padding: 5px 15px 5px 15px;
+  border-radius: 10px;
+}
+body #wrapper ul li {
+  padding: 12px 0 13px 0;
+  border-bottom: solid 1px;
+  border-color: #9d00ff;
+}
+body #wrapper ul li:hover,
+body #wrapper ul li:last-of-type:hover {
+  border: solid 1px;
+  border-color: #9d00ff;
+  border-radius: 5px;
+}
+body #wrapper ul li:hover ul,
+body #wrapper ul li:last-of-type:hover ul {
+  display: block;
+  position: absolute;
+  width: 101%;
+  margin-left: 190px;
+  padding-right: 5px;
+  margin-top: -28px;
+  background: #b5aaff;
+}
+body #wrapper ul li:hover ul li,
+body #wrapper ul li:last-of-type:hover ul li {
+  margin-left: 10px;
+  padding: 10px 0 10px 0;
+  vertical-align: central;
+}
+body #wrapper ul li:hover ul li:first-of-type,
+body #wrapper ul li:last-of-type:hover ul li:first-of-type {
+  padding-top: 5px;
+}
+body #wrapper ul li:hover ul li a,
+body #wrapper ul li:last-of-type:hover ul li a {
+  font-size: 18px;
+}
+body #wrapper ul li:last-of-type {
+  border: none;
+}
+body #wrapper ul li a {
+  font-size: 22px;
+  text-decoration: none;
+  padding: 0px 15px 0px 15px;
+  color: black;
+}
+body #wrapper ul li ul {
+  display: none;
+}
+body #wrapper ul li ul li:first-of-type {
+  list-style-image: url(imgs/arrow.png);
+}

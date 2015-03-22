@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="CSS.css" rel="stylesheet" />
+    <script src="JavaScriptExtensions.js"></script>
+    <script src="accordion.js"></script>
+</head>
+<body>
+    <div id="accordion-holder"></div>
+    <script type="text/javascript">
+
+
+        var accordion = controls.getAccordion("#accordion-holder");
+        var webItem = accordion.add("Web");
+        webItem.add("HTML");
+        webItem.add("CSS");
+        webItem.add("JavaScript");
+        webItem.add("jQuery");
+        webItem.add("ASP.NET MVC");
+        accordion.add("Desktop");
+        var mobile = accordion.add("Mobile");
+        mobile.add("Android");
+        mobile.add("IOS");
+        mobile.add("Windows");
+        accordion.add("Embedded");
+        accordion.render();
+
+
+        debugger;
+        var state = accordion.serialize();
+        console.log(state);
+         
+        var copied = controls.getDeserializedAccordion("#accordion-holder", state);
+        copied.render();
+
+    </script>
+</body>
+</html>

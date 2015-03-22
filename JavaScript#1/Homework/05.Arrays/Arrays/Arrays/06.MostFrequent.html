@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a program that finds the most frequent number in an array. Example:
+	{4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3}  4 (5 times)</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <input type="text" id="text1" />
+    <button type="button" onclick="mostFrequent()">Find most frequent!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function mostFrequent() {
+            var seq = new Array();
+            parseSeq(seq, document.getElementById("text1").value.split(",", 1000));
+
+            if (seq.length != 0) {
+                var myArray = new Array();
+                for (var i = 0; i < seq.length; i++) {
+                    var isIn = false;
+                    for (var key in myArray) {
+                        if (key == seq[i].toString()) {
+                            myArray[key] += 1;
+                            isIn = true;
+                            break;
+                        }
+                    }
+                    if (!isIn) {
+                        myArray[seq[i].toString()] = 1;
+                    }
+                }
+
+                var maxNumber = -1;
+                var myNumber = new Array();
+                myNumber.push(seq[0]);
+                for (var number in myArray) {
+                    if (maxNumber == myArray[number]) {
+                        myNumber.push(number);
+                    }
+                    else if (maxNumber < myArray[number]) {
+
+                        maxNumber = myArray[number];
+                        myNumber = new Array(number);
+                    }
+                }
+
+                jsConsole.writeLine("Numbers: " + myNumber.join(", "));
+                jsConsole.writeLine("Times: " + maxNumber);
+            }
+            else {
+                jsConsole.writeLine("No elements!");
+            }
+        }
+
+
+        function parseSeq(seq, seqToParse) {
+            for (var i = 0; i < seqToParse.length; i++) {
+                seqToParse[i] = seqToParse[i].toString().trim();
+                if (seqToParse[i] != "") {
+                    seq.push(parseInt(seqToParse[i]));
+                }
+            }
+        }
+    </script>
+</body>
+</html>

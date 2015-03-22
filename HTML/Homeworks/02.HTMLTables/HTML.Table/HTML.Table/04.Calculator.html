@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        table.myTable {
+            text-align: center;
+            width: 8%;
+            height: 60%;
+            border-spacing: 0px;
+            border: none;
+            border-color: blue;
+            background-color: grey;
+        }
+
+            table.myTable tr {
+                padding: 400px;
+            }
+    </style>
+</head>
+<body>
+    <section style="height: 300px; width: 100%;">
+        <form method="get" action="form.aspx">
+            <table border="1" class="myTable">
+                <tr>
+                    <th colspan="4">
+                        <input type="text" style="border: none; text-align:right" autofocus="autofocus" pattern="[0-9]*" />
+                    </th>
+                </tr>
+
+                <tr>
+                    <td><button type="button">1</button></td>
+                    <td><button type="button">2</button></td>
+                    <td><button type="button">3</button></td>
+                    <td><button type="button">+</button></td>
+                </tr>
+
+                <tr>
+                    <td><button type="button">4</button></td>
+                    <td><button type="button">5</button></td>
+                    <td><button type="button">6</button></td>
+                    <td><button type="button">-</button></td>
+                </tr>
+
+                <tr>
+                    <td><button type="button">7</button></td>
+                    <td><button type="button">8</button></td>
+                    <td><button type="button">9</button></td>
+                    <td><button type="button">*</button></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button type="button">0</button></td>
+                    <td><button type="button">.</button></td>
+                    <td><button type="button">/</button></td>
+                </tr>
+
+                <tr>
+                </tr>
+            </table>
+        </form>
+    </section>
+</body>
+</html>

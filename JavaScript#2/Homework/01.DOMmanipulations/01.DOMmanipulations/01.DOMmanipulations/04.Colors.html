@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var create = document.createDocumentFragment();
+        var input = document.createElement("input");
+        input.id = "myInput";
+        input.type = "text";
+
+        var inputColor1 = document.createElement("input");
+        inputColor1.type = "color";
+        inputColor1.style.width = 20 + "px";
+        inputColor1.style.height = 20 + "px";
+        inputColor1.onchange = function () {
+            document.getElementById("myInput").style.color = inputColor1.value;
+        }
+
+        var inputColor2 = document.createElement("input");
+        inputColor2.type = "color";
+        inputColor2.style.width = 20 + "px";
+        inputColor2.style.height = 20 + "px";
+        inputColor2.onchange = function () {
+            document.getElementById("myInput").style.backgroundColor = inputColor2.value;
+        }
+            
+        create.appendChild(input);
+        create.appendChild(inputColor1);
+        create.appendChild(inputColor2);
+        document.body.appendChild(create);
+        
+        console.log(inputColor2.value);
+    </script>
+</body>
+</html>

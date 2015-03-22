@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function goHorsy(params) {
+            var split = params[0].split(" ");
+            var R = parseInt(split[0]);
+            var C = parseInt(split[1]);
+
+            var matrix = new Array();
+            var count = 1;
+            for (var i = 0; i < R; i++) {
+                var split = params[i + 1].split("");
+                var count = Math.pow(2, i);
+                matrix.push(new Array());
+                for (var j = 0; j < C; j++) {
+                    matrix[i].push({ direction: split[j], value: count });
+                    count--;
+                }
+            }
+
+            var coordinates = {
+                row: R-1,
+                col: C-1
+            }
+            
+            var end = false;
+            var count = 0;
+            var weed=0;
+
+            while (!end) {
+
+                weed += matrix[coordinates.row][coordinates.col].value;
+
+                switch (matrix[coordinates.row][coordinates.col].direction) {
+                    case "1":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row-=2;
+                        coordinates.col++;
+                        break;
+                    case "2":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row--;
+                        coordinates.col+=2;
+                        break;
+                    case "3":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row++;
+                        coordinates.col+=2;
+                        break;
+                    case "4":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row += 2;
+                        coordinates.col++;
+                        break;
+                    case "5":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row += 2;
+                        coordinates.col--;
+                        break;
+                    case "6":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row++;
+                        coordinates.col-=2;
+                        break;
+                    case "7":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row--;
+                        coordinates.col-=2;
+                        break;
+                    case "8":
+                        matrix[coordinates.row][coordinates.col].direction = "penka";
+                        coordinates.row -= 2;
+                        coordinates.col--;
+                        break;
+                }
+
+                count++;
+
+                if (coordinates.row < 0 || coordinates.row >= R || coordinates.col < 0 || coordinates.col >= C) {
+                    console.log("Go go Horsy! Collected "+weed+" weeds ");
+                    end = true;
+                }
+                else if (matrix[coordinates.row][coordinates.col].direction == "penka") {
+                    console.log("Sadly the horse is doomed in "+count+" jumps ");
+                    end = true;
+                }
+            }
+        }
+
+        goHorsy([
+                  '3 5',
+                  '54361',
+                  '43326',
+                  '52888',
+                ])
+
+
+    </script>
+</body>
+</html>

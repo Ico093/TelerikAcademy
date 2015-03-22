@@ -1,0 +1,113 @@
+﻿body,
+div,
+ul,
+li,
+a,
+span {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+  font-size: 16px;
+}
+body #wrapper {
+  width: 460px;
+  height: 155px;
+  margin: 50px;
+  margin-top: 45px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #0094ff;
+}
+body #wrapper > ul {
+  list-style: none;
+  position: absolute;
+  top: 205px;
+}
+body #wrapper > ul li {
+  display: inline-block;
+  width: 115px;
+}
+body #wrapper > ul li:hover {
+  border-top: 4px solid #aaffef;
+  margin-top: -4px;
+}
+body #wrapper > ul li:hover div {
+  width: 460px;
+  height: 155px;
+  display: block;
+  position: absolute;
+  top: -160px;
+  left: 0;
+  border: 1px solid black;
+  border-bottom: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: #aaffef;
+}
+body #wrapper > ul li:hover div ul {
+  list-style: circle;
+}
+body #wrapper > ul li:hover div ul li {
+  width: 458px;
+  margin-top: 1px;
+  margin-left: 10px;
+}
+body #wrapper > ul li:hover div ul li:last-of-type span {
+  border: none;
+}
+body #wrapper > ul li:hover div ul li span {
+  display: inline-block;
+  float: right;
+  border-bottom: 1px solid black;
+  width: 300px;
+  text-align: right;
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-top: 7px;
+}
+body #wrapper > ul li:hover div ul li.me-item span.user {
+  background-position: 5px center;
+  display: inline-block;
+  float: left;
+  width: auto;
+  border: 1px solid black;
+  border-radius: 100px;
+  background-image: url(imgs/me.png);
+  background-repeat: no-repeat;
+  padding: 3px 13px 3px 25px;
+  /* width of the image plus a little extra padding */
+
+  text-decoration: none;
+  text-align: left;
+}
+body #wrapper > ul li:hover div ul li.other-item span.user {
+  display: inline-block;
+  float: left;
+  width: auto;
+  border: 1px solid black;
+  border-radius: 100px;
+  background-image: url(imgs/male.png);
+  background-repeat: no-repeat;
+  padding: 3px 13px 3px 25px;
+  /* width of the image plus a little extra padding */
+
+  text-decoration: none;
+  text-align: left;
+  background-position: 5px center;
+}
+body #wrapper > ul li a {
+  display: block;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 5px 14px 5px 15px;
+  background: #aaffef;
+  color: #0094ff;
+}
+body #wrapper > ul li a:hover {
+  background: #00ddb3;
+}
+body #wrapper > ul li div {
+  display: none;
+}

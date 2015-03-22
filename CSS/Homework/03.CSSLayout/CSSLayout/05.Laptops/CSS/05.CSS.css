@@ -1,0 +1,141 @@
+﻿body {
+    width: 680px;
+    height: 500px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: grey;
+    font-family: sans-serif;
+}
+
+body, header, nav, aside, section, p, ul, li, h1, button, a, div {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+    header ul {
+        text-align: center;
+    }
+
+    header li {
+        display: inline-block;
+    }
+
+a {
+    font-size: 22px;
+    color: #3fb7dc;
+}
+
+    a span {
+    text-shadow:#00c6ff 0px 0px 2px;
+    }
+
+
+hr {
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #363b37;
+    height: 2px;
+}
+
+section, label {
+    float: left;
+}
+
+#table {
+    width: 65%;
+    height: 435px;
+    border: solid;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: #363b37;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+    #table div {
+        display: inline-block;
+        float: left;
+        width: 210px;
+        height: 126px;
+        border: solid;
+        border-width: 2px;
+        border-radius: 2px;
+        border-color: #363b37;
+        margin: 3px;
+        margin-left: 4px;
+        margin-top: 10px;
+    }
+
+    #table h1 {
+        font-size: 15px;
+        text-align: center;
+        color: #363b37;
+        margin-left: 24px;
+        margin-right: 24px;
+        position: relative;
+        top: -10px;
+        background-color: white;
+    }
+
+    #table img {
+        width: 97px;
+        height: 63px;
+        float: left;
+        margin-left: 5px;
+        position: relative;
+        top: -10px;
+    }
+
+    #table ul {
+        list-style: none;
+        float: left;
+    }
+
+        #table ul li {
+            color: #363b37;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        #table ul.right {
+            margin-top: 10px;
+            line-height: 27px;
+        }
+
+            #table ul.right li {
+            }
+
+        #table ul.left {
+            float: left;
+            position: relative;
+            top: -21px;
+            margin-left: 24px;
+        }
+
+            #table ul.left li {
+            }
+
+#range {
+    margin-top: 60px;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height:40px;
+}
+
+    #range input {
+        margin-left: 10px;
+        margin-bottom:20px;
+        width:170px;
+    }
+
+    #range span.first {
+    margin-left:10px;
+    }
+
+    #range span.second {
+    margin-left:20px;
+    }

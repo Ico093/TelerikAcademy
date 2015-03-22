@@ -1,0 +1,122 @@
+﻿#wrapper, body, aside, ul, li, a, body, html, table, td, th {
+    margin: 0;
+    padding: 0;
+}
+
+.linear-gradient(@from-color,@to-color,@from-percent,@to-percent) {
+    background: -moz-linear-gradient(top, @from-color @from-percent, @to-color @to-percent); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-percent,@from-color), color-stop(@to-percent,@to-color)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* IE10+ */
+    background: linear-gradient(to bottom, @from-color @from-percent,@to-color @to-percent); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-8 */
+}
+
+body {
+    @from-bg-color-main: #d29bff;
+    @to-bg-color-main: #8977ff;
+    @default-font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+    @font-family-fo-dates: Consolas;
+    @default-font-size: 16px;
+
+    #wrapper {
+        width: 340px;
+        height: 230px;
+        margin: 15px;
+        border: solid 1px black;
+        border-radius: 5px;
+        font-family: @default-font-family;
+        font-size: @default-font-size;
+
+        ul.tab-strip {
+
+            & > li {
+                display: inline-block;
+                padding: 5px 15px 5px 15px;
+                border-right: solid 1px black;
+                border-bottom: solid 1px black;
+                border-radius: 5px;
+                .linear-gradient(#ededed,#ababab,0%,100%);
+
+                &:last-of-type {
+                    border-right: none;
+                }
+
+                &:hover {
+                    background: #eeeeee;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-size: 22px;
+                }
+            }
+
+                & > li.current {
+                    background: white;
+                    border: none;
+                    border-right: solid 1px black;
+                    border-radius: 0;
+                    font-weight: bold;
+                }
+
+            li.current .tab-content {
+                display: block;
+                position: absolute;
+                font-weight: normal;
+                left: 35px;
+                top: 65px;
+            }
+
+            .tab-content {
+                display: none;
+
+                ul {
+                    list-style: disc;
+
+                    li {
+                        ul {
+                            list-style: lower-latin;
+                            margin-left: 25px;
+                        }
+                    }
+                }
+
+                table {
+                    border-spacing: 0;
+                    width: 305px;
+                    height: 150px;
+
+                    thead {
+                        .linear-gradient(#ababab,#ededed,0%,100%);
+
+                        th {
+                            height: 30px;
+                            border: 1px solid black;
+                            border-right: 0;
+                            text-align: center;
+
+                            &:last-of-type {
+                                border-right: 1px solid black;
+                            }
+                        }
+                    }
+
+                    td {
+                        height: 30px;
+                        border-bottom: 1px solid black;
+                        border-left: 1px solid black;
+                        background-color: #eeeeee;
+                        padding-left: 5px;
+
+                        &:last-of-type {
+                            border-right: 1px solid black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

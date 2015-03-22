@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a script that compares two char arrays lexicographically (letter by letter).</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <input type="text" id="text1" />
+    <input type="text" id="text2" />
+    <button type="button" onclick="compare()">Compare!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function compare() {
+            var text1 = document.getElementById("text1").value;
+            var text2 = document.getElementById("text2").value;
+
+            var number = Math.min(text1.length, text2.length);
+            var output = "";
+
+            for (var i = 0; i < number; i++) {
+                if (text1.charAt(i).toLowerCase() > text2.charAt(i).toLowerCase()) {
+                    output = "First string is bigger!";
+                    break;
+                }
+                else if (text1.charAt(i).toLowerCase() < text2.charAt(i).toLowerCase()) {
+                    output = "Secound string is bigger!";
+                    break;
+                }
+            }
+
+            if (output == "") {
+                if (text1.length != text2.length) {
+                    if (text1.length > text2.length) {
+                        output = "First string is bigger!";
+                    }
+                    else {
+                        output = "Secound string is bigger!";
+                    }
+                }
+                else {
+                    output = "Strings are equal lexicographically!";
+                }
+            }
+
+            jsConsole.writeLine(output);
+
+        }
+    </script>
+</body>
+</html>

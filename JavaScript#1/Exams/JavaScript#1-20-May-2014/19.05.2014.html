@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+		function solve(params) {
+			var s = params;
+			var count = 0;
+			
+			for(var i=Math.floor(s/10);i>=0;i--)
+			{
+				for(var j=Math.floor((s-i*10)/4);j>=0; j--)
+				{
+					if((s-i*10-j*4)%3==0)
+					{
+						count++;
+					}
+				}
+			}
+			
+			console.log(count);
+		}
+		
+		function matrixFunc(params){
+			var split = params[0].split(" ");
+            var R = parseInt(split[0]);
+            var C = parseInt(split[1]);
+
+            var matrix = new Array();
+            var count = 1;
+            for (var i = 0; i < R; i++) {
+				var split=params[i+1].split(" ");
+				var count=Math.pow(2,i);
+                matrix.push(new Array());
+                for (var j = 0; j < C; j++) {
+                    matrix[i].push({direction:split[j],value:count});
+					count++;
+                }
+            }
+		
+			var coordinates={
+				row:0,
+				col:0
+			}
+			
+			var end=false;
+			var count=matrix[coordinates.row][coordinates.col].value;
+			while(!end)
+			{
+				switch(matrix[coordinates.row][coordinates.col].direction)
+				{
+					case "dr":
+						matrix[coordinates.row][coordinates.col].direction="penka";
+						coordinates.row++;
+						coordinates.col++;
+						break;
+					case "ur":
+						matrix[coordinates.row][coordinates.col].direction="penka";
+						coordinates.row--;
+						coordinates.col++;
+						break;
+					case "ul":
+						matrix[coordinates.row][coordinates.col].direction="penka";
+						coordinates.row--;
+						coordinates.col--;
+						break;
+					case "dl":
+						matrix[coordinates.row][coordinates.col].direction="penka";
+						coordinates.row++;
+						coordinates.col--;
+						break;
+				}
+				
+				if(coordinates.row<0||coordinates.row>=R||coordinates.col<0||coordinates.col>=C){
+					console.log("successed with "+count);
+					end=true;
+				}
+				else if(matrix[coordinates.row][coordinates.col].direction=="penka"){
+					console.log("failed at ("+coordinates.row+", "+coordinates.col+")");
+					end=true;
+				}
+				else{
+					count+=matrix[coordinates.row][coordinates.col].value;
+				}
+			}
+		}
+		
+		function where(a){
+			x=a[0];
+			y=a[1];
+			
+			return x>0?(y>0?1:3):(y>0?0:2);
+		}
+		
+		//solve(40);
+		
+//		matrixFunc([
+//  '3 5',
+//  'dr dl dl ur ul',
+//  'dr dr ul ul ur',
+//  'dl dr ur dl ur'   
+//]
+//);
+
+		console.log(where([1,2]));	
+    </script>
+</body>
+</html>

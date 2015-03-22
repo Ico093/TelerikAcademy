@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function min(arr) {
+            var min = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                if (min > arr[i]) {
+                    min = arr[i];
+                }
+            }
+            return [min];
+        }
+
+        function max(arr) {
+            var max = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                if (max < arr[i]) {
+                    max = arr[i];
+                }
+            }
+            return [max];
+        }
+
+        function avg(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return [Math.floor(sum / arr.length)];
+        }
+
+        function sum(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return [sum];
+        }
+
+        function toArr(string,variables)
+        {
+            var arr = new Array();
+            for (var i = 0; i < string.length; i++) {
+                if(!isNaN(parseInt(string[i])))
+                {
+                    arr.push(parseInt(string[i]));
+                }
+                else
+                {
+                    var innerArr = variables[string[i]];
+                    for (var j = 0; j < innerArr.length; j++) {
+                        arr.push(innerArr[j]);
+                    }
+                }
+            }
+            return arr;
+        }
+
+        function parse(string, variables) {
+            if(string[0]=="min"||string[0]=="max"||string[0]=="sum"||string[0]=="avg")
+            {
+                switch (string[0]) {
+                    case "min":
+                        {
+                            return min(toArr(string.splice(1,string.length-1), variables));
+                        }
+                    case "max":
+                        {
+                            return max(toArr(string.splice(1, string.length - 1), variables));
+                        }
+                    case "sum":
+                        {
+                            return sum(toArr(string.splice(1, string.length - 1), variables));
+                        }
+                    case "avg":
+                        {
+                            return avg(toArr(string.splice(1, string.length - 1), variables));
+                        }
+                }
+            }
+            else
+            {
+                return toArr(string, variables);
+            }
+        }
+
+        function Solve(args) {
+            var commands = args.length;
+            var variables = {};
+
+            debugger;
+            for (var i = 0; i < commands - 1; i++) {
+                args[i] = args[i].split(new RegExp("[ ,\\]\\[]", "g")).filter(function (value,index) { return value != ""; });
+                variables[args[i][1]] = parse(args[i].splice(2,args[i].length-2), variables);
+            }
+
+            args[i] = args[i].split(new RegExp("[ ,\\]\\[]", "g")).filter(function (value, index) { return value != ""; });
+            var result = parse(args[i], variables);
+            if (result.length > 1) {
+                return result.join(", ");
+            }
+            else
+            {
+                return result[0];
+            }
+        }
+
+        Solve([
+"def func   sum[5,    3, 7, 2, 6, 3]",
+"def func2 [5, 3, 7, 2, 6, 3]",
+"def func3 min[func2]",
+"def func4 max[5, 3, 7, 2, 6, 3]",
+"def func5 avg[5, 3, 7, 2, 6, 3]",
+"def func6 sum[func2, func3, func4 ]",
+"sum[func6, func4]"]);
+
+    </script>
+</body>
+</html>

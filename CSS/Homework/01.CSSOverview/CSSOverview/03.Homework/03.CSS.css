@@ -1,0 +1,55 @@
+body {
+    background-color: #a9a9a9;
+    width: 63%;
+}
+
+header {
+    color: #fafad2;
+}
+
+.posted {
+    font-size: 10px;
+}
+
+.posted a {
+    color: black;
+}
+
+#head {
+    text-align: center;
+}
+
+a {
+    text-align: center;
+    text-decoration: none;
+    color: #e5f2fa;
+}
+
+#underlined {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    text-align: center;
+}
+
+.delete {
+    font-size: 0px;
+}
+
+.current {
+background-color:#d3d3d3;
+}
+
+#myFooter {
+text-align:center;
+font-size:12px;
+}
+
+p {
+font-size:11px;
+}

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that creates a HTML UL using a template for every HTML LI. The source of the list should an array of elements. 
+        Replace all placeholders marked with –{…}–   with the value of the corresponding property of the object</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+        #list-item{
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+    <div data-type="template" id="list-item">
+        <strong>-{name}-</strong> <span>-{age}-</span>
+    </div>
+
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var people = [{ name: "Peter", age: 14 }, { name: "Kalin", age: 532 }, { name: "Dicho", age: 243 }, { name: "Ivan", age: 32 }];
+        var tmpl = document.getElementById("list-item").innerHTML;
+        var peopleList = generateList(people, tmpl);
+        jsConsole.writeLine(peopleList.join(""));
+
+        console.log(peopleList.join("\n"));
+
+        function generateList(arr, format) {
+            var newArr = new Array();
+            if (arr.length != 0) {
+                newArr.push("<ul>");
+                for (var i = 0; i < arr.length; i++) {
+                    newArr.push("<li>"+stringFormat(format, arr[i])+"</li>");
+                }
+                newArr.push("</ul>");
+            }
+            return newArr;
+        }
+
+        function stringFormat(format, obj) {
+            for (var arg in obj) {
+                format = format.replace(new RegExp("-{" + arg + "}-", "g"), obj[arg]);
+            }
+            return format;
+        }
+    </script>
+</body>
+</html>

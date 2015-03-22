@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var g = new Array();
+        g.push("9");
+        g.push("1");
+        g.push("8");
+        g.push("8");
+        g.push("7");
+        g.push("6");
+        g.push("5");
+        g.push("7");
+        g.push("7");
+        g.push("6");
+        console.log(Solve(g));
+
+
+
+        function Solve(params) {
+            var N = parseInt(params[0]);
+            var answer = 0;
+            var arr = new Array();
+            for (var i = 0; i < N; i++) {
+                arr.push(parseInt(params[i + 1]));
+            }
+
+            var last = arr[0];
+            for (var i = 1; i < N; i++) {
+                if (last > arr[i]) {
+                    answer++;
+                }
+                last = arr[i];
+            }
+            answer++;
+            return answer;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write an expression that checks if given print (x,  y) is within a circle K(O, 5).</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-x">x:</label>
+    <input type="text" id="tb-x" />
+    <label for="tb-y">y:</label>
+    <input type="text" id="tb-y" />
+    <button type="button" onclick="IsInCircle()">Is in Circle?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function IsInCircle() {
+            var x = jsConsole.readInteger("#tb-x");
+            var y = jsConsole.readInteger("#tb-y");
+            if (x * x + y * y <= 25) {
+                jsConsole.writeLine("The point (" + x + "," + y + ") is in the circle K(0,5)!");
+            }
+            else {
+                jsConsole.writeLine("The point (" + x + "," + y + ") isn't in the circle K(0,5)!");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a script that finds the maximal increasing sequence in an array. Example: {3, 2, 3, 4, 2, 2, 4}  {2, 3, 4}.</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <input type="text" id="text1" />
+    <button type="button" onclick="maxSequence()">Max sequence!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function maxSequence() {
+            var seq = new Array();
+            parseSeq(seq, document.getElementById("text1").value.split(",", 1000));
+            debugger;
+            if (seq.length != 0) {
+                var sequences = new Array();
+                var last = seq[0];
+                var curLength = 1;
+                var maxLength = 1;
+
+                for (var i = 1; i < seq.length; i++) {
+                    if (last < seq[i]) {
+                        curLength += 1;
+                        last = seq[i];
+                    }
+                    else {
+                        if (curLength == maxLength) {
+                            var mySeq = new Array();
+                            for (var j = i - maxLength; j < i; j++) {
+                                mySeq.push(seq[j]);
+                            }
+                            sequences.push(mySeq);
+                        }
+                        else if (curLength > maxLength) {
+                            maxLength = curLength;
+                            sequences = new Array();
+                            var mySeq = new Array();
+                            for (var j = i - maxLength; j < i; j++) {
+                                mySeq.push(seq[j]);
+                            }
+                            sequences.push(mySeq);
+                        }
+                        curLength = 1;
+                        last = seq[i];
+                    }
+                }
+
+                if (curLength == maxLength) {
+                    var mySeq = new Array();
+                    for (var j = seq.length - maxLength; j < seq.length; j++) {
+                        mySeq.push(seq[j]);
+                    }
+                    sequences.push(mySeq);
+                }
+                else if (curLength > maxLength) {
+                    maxLength = curLength;
+                    sequences = new Array();
+                    var mySeq = new Array();
+                    for (var j = seq.length - maxLength; j < seq.length; j++) {
+                        mySeq.push(seq[j]);
+                    }
+                    sequences.push(mySeq);
+                }
+
+                for (var j = 0; j < sequences.length; j++) {
+                    jsConsole.writeLine(sequences[j].join(", "));
+                }
+            }
+            else {
+                jsConsole.writeLine("No elements!");
+            }
+        }
+
+        function parseSeq(seq, seqToParse) {
+            for (var i = 0; i < seqToParse.length; i++) {
+                seqToParse[i] = seqToParse[i].toString().trim();
+                if (seqToParse[i] != "") {
+                    seq.push(parseInt(seqToParse[i]));
+                }
+            }
+        }
+    </script>
+</body>
+</html>

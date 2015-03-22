@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Task01.master.cs" Inherits="MasterPages.Task01" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <aside>
+            <ul>
+                <li>
+                    <a href="~/Task01/Task01.Friends.aspx" runat="server">Friends</a>
+                </li>
+                <li>
+                    <a href="~/Task01/Task01.PersonalInfo.aspx" runat="server">PersonalInfo</a>
+                </li>
+                <li>
+                    <a href="~/Task01/Task01.Aditional.aspx" runat="server">Aditional</a>
+                </li>
+            </ul>
+        </aside>
+        <div>
+            <asp:ContentPlaceHolder ID="mainPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

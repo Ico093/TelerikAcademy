@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+
+        function solve(params) {
+
+            function parseValues(params, keyValues, keyValuesCount) {
+                for (var i = 0; i < keyValuesCount; i++) {
+                    var line = params[1 + i].split("-");
+                    if (line[1].indexOf(";") != -1) {
+                        line[1] = line[1].split(";");
+                    }
+                    keyValues[line[0]] = line[1];
+                }
+            }
+
+            var keyValuesCount = parseInt(params[0]);
+            var keyValues = {};
+            var templates = {};
+            parseValues(params, keyValues, keyValuesCount);
+
+            var lines = parseInt(params[1 + keyValuesCount]);
+
+            function parsniGoBe(){
+            var output = "";
+
+            for (var i = 2 + keyValuesCount; i < 2 + keyValuesCount + lines; i++) {
+                var indexOfNk = params[i].trim().indexOf("<nk-");
+
+                if (indexOfNk != -1) {
+                    if (indexOfNk >= 1 && params[i][indexOfNk - 1] == '{' && params[i][indexOfNk - 2] == '{') {
+                        output += params[i].replace("{{", "").replace("}}", "") + "\n";
+                    }
+                    else if (params[i].indexOf("<nk-model") != -1) {
+                        var start = params[i].indexOf("<nk-model");
+                        var end = params[i].indexOf("</nk-model");
+
+                        var nachalo = params[i].substring(0, start);
+                        var sreda = params[i].substring(start + 10, end);
+                        var krai = params[i].substring(end + 11);
+
+                        output += nachalo + keyValues[sreda] + krai + "\n";
+                    }
+                    else if (params[i].indexOf("<nk-template") != -1) {
+                        var start = params[i].indexOf('name="');
+                        var end = params[i].indexOf('">');
+
+                        if (start != -1) {
+                            var name = params[i].substring(start + 6, end);
+                            var templateString = "";
+                            i++;
+                            while (params[i].indexOf("</nk-template") == -1) {
+                                templateString += params[i] + "\n";
+                                i++;
+                            }
+                            templates[name] = templateString;
+                        }
+                        else {
+                            var start = params[i].indexOf('render="');
+                            var end = params[i].indexOf('" />');
+
+                            output += templates[params[i].substring(start + 8, end)];
+                        }
+                    }
+                    else if (params[i].indexOf("<nk-if") != -1) {
+                        var start = params[i].indexOf('condition="');
+                        var end = params[i].indexOf('">');
+
+                        var name = params[i].substring(start + 11, end);
+                        if (keyValues[name] == "true") {
+
+
+                            var templateString = "";
+                            i++;
+                            while (params[i].indexOf("</nk-if") == -1) {
+                                templateString += params[i] + "\n";
+                                i++;
+                            }
+                            output += templateString;
+                        }
+                    }
+                    else if (params[i].indexOf("<nk-repeat") != -1) {
+
+                    }
+                }
+                else {
+                    output += params[i] + "\n";
+                }
+            }
+            return output;
+        }
+
+            console.log(output);
+        };
+
+
+
+        solve(['6',
+               'title-Telerik Academy',
+               'showSubtitle-true',
+               'subTitle-Free training',
+               'showMarks-false',
+               'marks-3;4;5;6',
+               'students-Ivan;Gosho;Pesho',
+               '42',
+               '<nk-template name="menu">',
+               '<ul id="menu">',
+                   '<li>Home</li>',
+                   '<li>About us</li>',
+               '</ul>',
+               '</nk-template>',
+               '<nk-template name="footer">',
+                   '<footer>',
+                       'Copyright Telerik Academy 2014',
+                  '</footer>',
+               '</nk-template>',
+               '<!DOCTYPE html>',
+               '<html>',
+               '<head>',
+                   '<title>Telerik Academy</title>',
+               '</head>',
+               '<body>',
+                   '<nk-template render="menu" />',
+                   '',
+                   '<h1><nk-model>title</nk-model></h1>',
+                   '<nk-if condition="showSubtitle">',
+                      '<h2><nk-model>subTitle</nk-model></h2>',
+                      '<div>{{<nk-model>subTitle</nk-model>}} ;)</div>',
+                   '</nk-if>',
+                   '',
+                   '<ul>',
+                       '<nk-repeat for="student in students">',
+                           '<li>',
+                               '<nk-model>student</nk-model>',
+                           '</li>',
+                           '<li>Multiline <nk-model>title</nk-model></li>',
+                       '</nk-repeat>',
+                   '</ul>',
+                   '<nk-if condition="showMarks">',
+                       '<div>',
+                           '<nk-model>marks</nk-model> ',
+                       '</div>',
+                   '</nk-if>',
+                   '',
+                   '<nk-template render="footer" />',
+               '</body>',
+               '</html>']);
+
+    </script>
+</body>
+</html>

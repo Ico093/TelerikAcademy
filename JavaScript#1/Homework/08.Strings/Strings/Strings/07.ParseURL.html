@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a script that parses an URL address and extracts from it the [protocol], [server] and [resource] elements. Return the elements in a JSON object.</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text" />
+    <button type="button" onclick="Parse()">Parse url!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Parse() {
+            var url = document.getElementById("text").value;
+            debugger;
+            var protocol = url.match(new RegExp("[^:]*:"));
+            var server = url.match(new RegExp("//[^/]*/"));
+            var resource = url.substr(server.index + server[0].length - 1, url.length - (server.index + server[0].length));
+
+            var object = {
+                protocol: protocol[0].replace(":", ""),
+                server: server[0].replace(/\//g, ""),
+                resource: resource,
+                toString: function () { return this.protocol + "://" + this.server + this.resource; }
+            };
+
+            jsConsole.writeLine("Protocol:"+object.protocol);
+            jsConsole.writeLine("Server:" + object.server);
+            jsConsole.writeLine("Resource:" + object.resource);
+            return object;
+        }
+    </script>
+</body>
+</html>

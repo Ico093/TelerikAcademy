@@ -1,0 +1,13 @@
+﻿body {
+
+}
+
+div {
+width:95%;
+height:99%;
+border:solid;
+border-width:1px;
+background-color:black;
+border-color:red;
+border-radius:40px;
+}

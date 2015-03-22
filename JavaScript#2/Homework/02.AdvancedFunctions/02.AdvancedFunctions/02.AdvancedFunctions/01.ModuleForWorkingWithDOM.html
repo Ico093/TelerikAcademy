@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <a></a>
+    <script>
+        var domModule = (function () {
+            var buffer = {};
+            var create = document.createDocumentFragment();
+
+            function appendChild(newChild, parent) {
+                var myParent = document.querySelector(parent);
+                myParent.appendChild(newChild);
+            };
+
+            function removeChild(oldChild, parents) {
+                var myParents = document.querySelectorAll(parents);
+                for (var i = 0; i < myParents.length; i++) {
+                    myParents[i].removeChild(oldChild);
+                }
+            };
+
+            function addHandler(item, type, listener) {
+                var myItems = document.querySelectorAll(item);
+
+                for (var i = 0; i < myItems.length; i++) {
+                    myItems[i].addEventListener(type, listener);
+                }
+            };
+
+            function appendToBuffer(parent,child)
+            {
+                var parents = document.querySelectorAll(parent);
+
+                for (var i = 0; i < parents.length; i++) {
+                    if(buffer.hasOwnProperty(child.name))
+                    {
+                        buffer[child.name] += 1;
+                        create.appendChild(child);
+                        if(buffer[child.name]==100)
+                        {
+                            document.appendChild(create);
+                            buffer = {};
+                        }
+                    }
+                    else
+                    {
+                        buffer[child.name] = 1;
+                        create.appendChild(child);
+                    }
+                }
+            }
+
+            return {
+                appendChild: appendChild,
+                removeChild: removeChild,
+                addHandler: addHandler,
+                appendToBuffer:appendToBuffer
+            }
+        })();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<AJAX.Models.Movie>
+
+<div class="jumbotron">
+    @foreach (var movie in Model)
+    {
+        <div>
+            @Html.Label("Title","Title")
+            @movie.Title
+            @Html.ActionLink("Edit", "UpdateMovie", "Movies", new { Id = @movie.Id }, null)
+            @Html.ActionLink("Delete", "DeleteMovie", "Movies", new { Id=@movie.Id },null)
+        </div>
+    }
+</div>

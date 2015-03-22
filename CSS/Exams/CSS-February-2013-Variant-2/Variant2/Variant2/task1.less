@@ -1,0 +1,121 @@
+﻿body, div, ul, li, table, tr, td, a, p, h1 {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+.linear-gradient(@from-color,@pass-color,@to-color,@from-pos,@pass-pos,@to-pos) {
+    background: -moz-linear-gradient(top, @from-color @from-pos, @pass-color @pass-pos, @pass-pos @pass-pos+30%, @to-color @to-pos); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-pos,@from-color), color-stop(@pass-pos,@pass-pos), color-stop(@pass-pos+30%,@pass-pos), color-stop(@to-pos,@to-color)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* IE10+ */
+    background: linear-gradient(to bottom, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* W3C */
+}
+
+body {
+    font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    font-size: 18px;
+
+    #wrapper {
+        display: block;
+        margin: 50px;
+        width: 400px;
+
+        ul {
+            list-style: none;
+
+            li {
+                border: 1px solid black;
+                text-align: center;
+
+                &.current {
+                    div {
+                        display: block;
+                        background: #aaaaaa;
+                        text-align: left;
+                        padding: 5px;
+                        padding-left: 15px;
+
+                        h1 {
+                            color: #5e5e5e;
+                            font-size: 29px;
+                            text-align: center;
+                            margin-top: 5px;
+                            margin-right: 10px;
+                        }
+
+                        p {
+                            color: #4f4b4b;
+                            text-align: justify;
+                            margin-right: 10px;
+                            margin-top: 5px;
+                        }
+
+                        table {
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                            margin-left: 5px;
+
+                            tr {
+                                &:nth-of-type(2n+1) {
+                                    .linear-gradient(#cbcbcb,#cbcbcb,#898989,0%,0%,90%);
+                                }
+
+                                &:nth-of-type(2n) {
+                                    .linear-gradient(#898989,#898989,#cbcbcb,0%,0%,90%);
+                                }
+                            }
+
+                            th {
+                                border: 1px solid black;
+                                border-left: none;
+                                width: 64px;
+                                height: 30px;
+                                padding-left: 5px;
+                                color: black;
+                                .linear-gradient(#ececec,#ececec,#898989,0%,0%,90%);
+
+                                &:first-of-type {
+                                    border: 1px solid black;
+                                }
+                            }
+
+                            td {
+                                border: 1px solid black;
+                                border-left: none;
+                                border-top: none;
+                                width: 65px;
+                                height: 32px;
+                                color: white;
+                                text-align: center;
+
+                                &:first-of-type {
+                                    border: 1px solid black;
+                                    border-top: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                a {
+                    .linear-gradient(#e9e9e9,#e5e5e5,#a9a9a9,0%,10%,80%);
+                    display: block;
+                    text-decoration: none;
+                    font-size: 23px;
+                    font-weight: bold;
+                    color: #403b3b;
+
+                    &:hover {
+                    background:#aaaaaa;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.accordion-content {
+    display: none;
+}

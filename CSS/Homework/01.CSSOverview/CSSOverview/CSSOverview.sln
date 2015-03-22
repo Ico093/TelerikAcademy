@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "02.CSSOverview", "CSSOverview\02.CSSOverview.vbproj", "{ED0A76FF-6DCB-4EED-97BD-7A8D60D0BF50}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "01.TicketID", "01.TicketID\01.TicketID.vbproj", "{198AE9F5-8DBC-4498-B9C3-3C5988684442}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "03.Homework", "03.Homework\03.Homework.vbproj", "{05BB5A19-1F55-414D-9E3A-DEC15D4928BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED0A76FF-6DCB-4EED-97BD-7A8D60D0BF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0A76FF-6DCB-4EED-97BD-7A8D60D0BF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0A76FF-6DCB-4EED-97BD-7A8D60D0BF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0A76FF-6DCB-4EED-97BD-7A8D60D0BF50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198AE9F5-8DBC-4498-B9C3-3C5988684442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198AE9F5-8DBC-4498-B9C3-3C5988684442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198AE9F5-8DBC-4498-B9C3-3C5988684442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198AE9F5-8DBC-4498-B9C3-3C5988684442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05BB5A19-1F55-414D-9E3A-DEC15D4928BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05BB5A19-1F55-414D-9E3A-DEC15D4928BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05BB5A19-1F55-414D-9E3A-DEC15D4928BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05BB5A19-1F55-414D-9E3A-DEC15D4928BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

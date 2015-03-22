@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a boolean expression for finding if the bit 3 (counting from 0) of a given integer is 1 or 0.</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-number">Number:</label>
+    <input type="text" id="tb-number" />
+    <button type="button" onclick="FindingBit()">Finding Bit?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function FindingBit() {
+            var number = jsConsole.readInteger("#tb-number");
+            if (Math.floor(number / 8) >= 1) {
+                jsConsole.write(" Third bit(counting from 0) of " + number + "(binary:" + number.toString(2) + ") is ");
+                jsConsole.writeLine(Math.floor(Math.floor(number / 8) % 2).toString());
+            }
+            else {
+                jsConsole.writeLine("This number isn't big enough!");
+            }
+        }
+    </script>
+
+</body>
+</html>

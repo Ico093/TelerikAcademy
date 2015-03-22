@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Shape", "ObjectOrientedProgarammingPriciples2\01.Shape.csproj", "{6ABE5E99-4B3D-47B2-84E2-F53B78496D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Bank", "Bank\02.Bank.csproj", "{2B69046E-08E2-407C-A7CC-DE94FEE34954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.InvalidRange", "03.InvalidRange\03.InvalidRange.csproj", "{BB049B55-9F7F-492E-A5EE-0D35F9FF76A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ABE5E99-4B3D-47B2-84E2-F53B78496D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABE5E99-4B3D-47B2-84E2-F53B78496D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABE5E99-4B3D-47B2-84E2-F53B78496D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABE5E99-4B3D-47B2-84E2-F53B78496D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B69046E-08E2-407C-A7CC-DE94FEE34954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B69046E-08E2-407C-A7CC-DE94FEE34954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B69046E-08E2-407C-A7CC-DE94FEE34954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B69046E-08E2-407C-A7CC-DE94FEE34954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB049B55-9F7F-492E-A5EE-0D35F9FF76A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB049B55-9F7F-492E-A5EE-0D35F9FF76A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB049B55-9F7F-492E-A5EE-0D35F9FF76A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB049B55-9F7F-492E-A5EE-0D35F9FF76A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

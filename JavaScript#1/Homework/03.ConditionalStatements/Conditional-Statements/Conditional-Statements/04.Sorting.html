@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sort 3 real values in descending order using nested if statements.</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-number1">Number1:</label>
+    <input type="text" id="tb-number1" />
+    <label for="tb-number2">Number2:</label>
+    <input type="text" id="tb-number2" />
+    <label for="tb-number3">Number3:</label>
+    <input type="text" id="tb-number3" />
+    <button type="button" onclick="Biggest()">Biggest?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Biggest() {
+            var number1 = new Object();
+            number1.value = jsConsole.readInteger("#tb-number1");
+            var number2 = new Object();
+            number2.value = jsConsole.readInteger("#tb-number2");
+            var number3 = new Object();
+            number3.value = jsConsole.readInteger("#tb-number3");
+
+            ExchangeIfBigger(number1, number2);
+            ExchangeIfBigger(number1, number3);
+            ExchangeIfBigger(number2, number3);
+
+            jsConsole.writeLine("Sorted: " + number1.value + " " + number2.value + " " + number3.value);
+        }
+
+        function ExchangeIfBigger(number1, number2) {
+            if (number2.value > number1.value) {
+                number1.value += number2.value;
+                number2.value = number1.value - number2.value;
+                number1.value -= number2.value;
+            }
+        }
+    </script>
+</body>
+</html>

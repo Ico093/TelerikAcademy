@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that reverses the digits of given decimal number. Example: 256  652</title>
+<link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text1">Number:</label>
+    <input type="text" id="text1" />
+    <button type="button" onclick="reverse()">Reverse!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function reverse() {
+            if(parseInt(document.getElementById("text1").value).toString()!="NaN")
+            {
+                jsConsole.writeLine(document.getElementById("text1").value.split("").reverse().join(""));
+            }
+        }
+    </script>
+
+</body>
+</html>

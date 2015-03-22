@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a JavaScript function that finds how many times a substring is contained in a given text (perform case insensitive search).</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text" />
+    <label for="text">Enter substring to search:</label>
+    <input type="text" id="text2" />
+    <button type="button" onclick="Find()">How many times?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Find() {
+            var text = document.getElementById("text").value;
+            var searchedFor = document.getElementById("text2").value;
+
+            var c = text.match(new RegExp(searchedFor,"gi"));
+            jsConsole.writeLine("Count: " + c.length);
+            return c.length;
+        }
+    </script>
+
+</body>
+</html>

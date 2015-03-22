@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a script that shows the sign (+ or -) of the product of three real numbers without calculating it. Use a sequence of if statements.</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-number1">Number1:</label>
+    <input type="text" id="tb-number1" />
+    <label for="tb-number2">Number2:</label>
+    <input type="text" id="tb-number2" />
+    <label for="tb-number3">Number3:</label>
+    <input type="text" id="tb-number3" />
+    <button type="button" onclick="ProductSign()">What is the product sign?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function ProductSign() {
+            var number1 = jsConsole.readInteger("#tb-number1");
+            var number2 = jsConsole.readInteger("#tb-number2");
+            var number3 = jsConsole.readInteger("#tb-number3");
+            if ((number1 ^ number2 ^ number3) < 0) {
+                jsConsole.writeLine("Product sign would be '-'!");
+            }
+            else {
+                jsConsole.writeLine("Product sign would be '+'!");
+            }
+        }
+    </script>
+</body>
+</html>

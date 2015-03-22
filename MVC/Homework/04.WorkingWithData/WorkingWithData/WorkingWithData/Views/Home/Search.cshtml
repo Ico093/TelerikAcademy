@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+@model IEnumerable<WorkingWithData.Models.TweetViewModel>
+
+<h2>Search</h2>
+
+<div>
+    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+    {
+        @Html.TextBox("query")
+
+        <input type="submit" value="Search" />
+    }
+</div>
+
+<div class="jumbotron">
+    @foreach (var tweet in Model)
+    {
+        <div>
+            @Html.DisplayFor(m => tweet.Text)
+        </div>
+    }
+</div>
+

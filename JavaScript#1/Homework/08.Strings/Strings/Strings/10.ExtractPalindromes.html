@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe".</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text" />
+    <button type="button" onclick="Extract()">Extract palindromes!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Extract() {
+            var text = document.getElementById("text").value.split(new RegExp("[ ,]+")).filter(function (value, index, text) { return value != ""; }).trim();
+            var palindromes = new Array();
+
+            for (var i = 0; i < text.length; i++) {
+                var isPalindrome = true;
+                for (var j = 0; j < text[i].length / 2; j++) {
+                    if (text[i][j] != text[i][text[i].length - 1 - j]) {
+                        isPalindrome = false;
+                    }
+                }
+                if (isPalindrome) {
+                    palindromes.push(text[i]);
+                }
+            }
+
+            jsConsole.writeLine("Palindromes: " + palindromes.join(", "));
+            return palindromes;
+        }
+
+        Array.prototype.trim = function () {
+            var arr = this;
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] = arr[i].trim();
+            }
+            return arr;
+        }
+    </script>
+</body>
+</html>

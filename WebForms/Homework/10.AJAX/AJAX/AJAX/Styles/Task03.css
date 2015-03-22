@@ -1,0 +1,15 @@
+﻿body img {
+  width: 100%;
+}
+body #PanelLarge {
+  width: 60%;
+  margin: 0 auto;
+}
+body #PanelPictures {
+  width: 65%;
+  margin: 0 auto;
+}
+body #PanelPictures input {
+  width: 33%;
+}
+/*# sourceMappingURL=Task03.css.map */

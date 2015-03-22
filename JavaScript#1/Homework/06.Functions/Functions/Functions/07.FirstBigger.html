@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a Function that returns the index of the first element in array that is bigger than its neighbors, or -1, if there’s no such element.
+Use the function from the previous exercise.
+</title>
+ <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text1">Array:</label>
+    <input type="text" id="text1" />
+    <button type="button" onclick="check()">First bigger</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function check() {
+            debugger;
+            var array = parseSeq(document.getElementById("text1").value);
+            jsConsole.writeLine(array.join(", "));
+            var number = firstBigger(array);
+            if (number != -1) {
+                jsConsole.writeLine("Index of first such number is "+number);
+            }
+            else
+            {
+                jsConsole.writeLine("No such number exists. Function returned "+number);
+            }
+        }
+
+        function firstBigger(array)
+        {
+            for (var i = 1; i < array.length - 1; i++) {
+                if (bigger(array, i)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        function bigger(array, index) {
+
+            if (index > 0 && index < array.length - 1) {
+                if (array[index - 1] < array[index] && array[index + 1] < array[index]) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+
+        function parseSeq(seqToParse) {
+            var seq = new Array();
+            seqToParse = seqToParse.split(",");
+            for (var i = 0; i < seqToParse.length; i++) {
+                seqToParse[i] = seqToParse[i].toString().trim();
+                if (seqToParse[i] != "") {
+                    seq.push(parseInt(seqToParse[i]));
+                }
+            }
+            return seq;
+        }
+    </script>
+</body>
+</html>

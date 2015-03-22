@@ -1,0 +1,92 @@
+﻿<Page x:Class="Kino.LoyalCustomerRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+	Title="LoyalCustomerRegistration" Background="#FF57CCC3" Height="570" Width="856">
+    <Page.Resources>
+        <Style x:Key="Labels" TargetType="Label">
+            <Setter Property="Background" Value="#FF57CCC3"/>
+            <Setter Property="Foreground" Value="#FF2D2D30"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Gold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Buttons" TargetType="Button">
+            <Setter Property="Background" Value="#FF21AEBC"/>
+            <Setter Property="BorderBrush" Value="Gold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="#FF2D2D30"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="0,275,0,0"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="{TemplateBinding Padding}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        CornerRadius="5"
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF21AEBC" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" Value="0.25" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Gold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="TextBoxes" TargetType="TextBox">
+            <Setter Property="Background" Value="#FF8FF5ED"/>
+            <Setter Property="BorderBrush" Value="Gold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#FF57CCC3" Margin="-60,0,-95,10">
+
+        <Label Content="      Loyal Customer Registration Form" Style="{StaticResource Labels}"  HorizontalAlignment="Center" FontFamily="Pristina" FontSize="35" Width="474" Height="117" Margin="258,30,279,0"/>
+        <Label Content="Name:" Style="{StaticResource Labels}" Margin="127,152,-127,0"/>
+        <Label Content="Email:" Style="{StaticResource Labels}" Margin="127,201,-128,0"/>
+        <Label Content="Birth Date:" Style="{StaticResource Labels}" Margin="127,247,-127,0"/>
+        <TextBox Name="CustomerName" Style="{StaticResource TextBoxes}" Margin="240,152,0,0"/>
+        <TextBox Name="CustomerEmail" Style="{StaticResource TextBoxes}" Margin="240,201,0,0"/>
+        <Button Content="Finish" Style="{StaticResource Buttons}"
+                Click="OnFinishButton_Click" Margin="466,336,0,0"></Button>
+        <DatePicker Name="BirthDate" HorizontalAlignment="Left" 
+                    Margin="238,253,0,0"
+                    Background="#FF98DABC"
+                    VerticalAlignment="Top"
+                    Height="27" 
+                    Width="173"/>
+        <Image Margin="586,253,134,-15" Source="images/mickey.png" Stretch="Fill"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Kino.Classes.Accountant" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAACAAAAAAAAAEAEgAAAQBAIQAgQAACIAACEgA=</HashCode>
+      <FileName>Classes\Accountant.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kino.Classes.Admin" Collapsed="true">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAQAAAAAAAAAAAAAAAAAAAAAACIABAAgAAAAA=</HashCode>
+      <FileName>Classes\Admin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kino.Classes.CustomersStorage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAABAAAAABAAAAEAEgAAACBAAAAAQAAEAAAAAAA=</HashCode>
+      <FileName>Classes\CustomersStorage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kino.Classes.DiscountStatistic" Collapsed="true">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAEAAA=</HashCode>
+      <FileName>Classes\DiscountStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.EmailSender" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACACAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\EmailSender.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kino.Classes.Employee" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAACAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>Classes\Employee.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Kino.Classes.InvalidMovieException" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\InvalidMovieException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.LoyalCustomer" Collapsed="true">
+    <Position X="13.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAACAAAAAgBEAAAAAAAAAQAAAACAAAAAgAAgA=</HashCode>
+      <FileName>Classes\LoyalCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.Movie" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBgQAEAQAAAAAAAAAAAAAAAAAAIAAAACBAAAAAAAA=</HashCode>
+      <FileName>Classes\Movie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.MoviesStorage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAEAAAABEAEwAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Classes\MoviesStorage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Kino.Classes.Person" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.Projection" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAIAAAACAABAAEAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Projection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.Statistic" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.Ticket" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIQAAACAAAAEAAAFAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Ticket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kino.Classes.TotalStatistic" Collapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAABCAAAAAgEAAAAAAAAAAAAAAAAAAAABAAAAAQ=</HashCode>
+      <FileName>Classes\TotalStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Kino.Classes.LoyalStatistic" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQIAAAEAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Classes\LoyalStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Kino.Classes.ISender" Collapsed="true">
+    <Position X="18" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ISender.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Kino.Interfaces.ILoggable" Collapsed="true">
+    <Position X="16.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ILoggable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Kino.Interfaces.IStorable" Collapsed="true">
+    <Position X="19.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IStorable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Kino.Classes.Halls" Collapsed="true">
+    <Position X="16.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Halls.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

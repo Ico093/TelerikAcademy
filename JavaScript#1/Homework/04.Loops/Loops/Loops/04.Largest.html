@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a script that finds the lexicographically smallest and largest property in document, window and navigator objects</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <button type="button" onclick="lexicographically()">Start!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function lexicographically() {
+            var smallest = "z";
+            var largest = "";
+            var number = new Object();
+            number.value = 0;
+
+            debugger;
+
+            for (var property in document) {
+                lexicographicallyCompare(smallest, property, number);
+                if (number.value == (-1)) {
+                    smallest = property;
+                }
+                lexicographicallyCompare(largest, property, number);
+                if (number.value == 1) {
+                    largest = property;
+                }
+            }
+
+            for (var property in window) {
+                lexicographicallyCompare(smallest, property, number);
+                if (number.value == (-1)) {
+                    smallest = property;
+                }
+                lexicographicallyCompare(largest, property, number);
+                if (number.value == 1) {
+                    largest = property;
+                }
+            }
+
+            for (var property in navigator) {
+                lexicographicallyCompare(smallest, property, number);
+                if (number.value == (-1)) {
+                    smallest = property;
+                }
+                lexicographicallyCompare(largest, property, number);
+                if (number.value == 1) {
+                    largest = property;
+                }
+            }
+
+            jsConsole.writeLine("Smallest: " + smallest + "\nLargest: " + largest);
+        }
+
+        function lexicographicallyCompare(string1, string2, number) {
+            string1 = string1.toLowerCase();
+            string2 = string2.toLowerCase();
+            number.value = 0;
+            var min = Math.min(string1.length, string2.length);
+            for (var i = 0; i < min; i++) {
+                if (string1[i] != string2[i]) {
+                    if (string1[i] > string2[i]) {
+                        number.value = -1;
+                        break;
+                    }
+                    else {
+                        number.value = 1;
+                        break;
+                    }
+                }
+            }
+
+            if (number.value == 0) {
+                if (string1.length != string2.length) {
+                    if (string1.length > string2.length) {
+                        number.value = -1;
+                    }
+                    else {
+                        number.value = 1;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

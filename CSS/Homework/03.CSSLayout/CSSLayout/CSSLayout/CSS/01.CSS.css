@@ -1,0 +1,29 @@
+﻿ul {
+    list-style: none;
+    width:80px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a:visited {
+    display:block;
+    }
+
+ul li  ul {
+    display: none;
+}
+
+ul li:hover > ul {
+    display: block;
+}
+
+    ul li:hover > ul a {
+        color: gray;
+    }

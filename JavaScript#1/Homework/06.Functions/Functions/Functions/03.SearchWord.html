@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that finds all the occurrences of word in a text
+The search can case sensitive or case insensitive
+Use function overloading
+    </title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text1">Number:</label>
+    <input type="text" id="text1" />
+    <label for="text2">Word to search:</label>
+    <input type="text" id="text2" />
+    <label for="caseSensitive">Case sensitive</label>
+    <input type="checkbox" id="caseSensitive" />
+    <button type="button" onclick="search()">Search!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function search() {
+            debugger;
+            if (document.getElementById("caseSensitive").checked == true) {
+                jsConsole.writeLine(searchWord(document.getElementById("text1").value, document.getElementById("text2").value, true));
+            }
+            else {
+                jsConsole.writeLine(searchWord(document.getElementById("text1").value, document.getElementById("text2").value));
+            }
+        }
+
+        function searchWord(string, word, caseSensitive) {
+            caseSensitive = false || caseSensitive;
+
+            if (caseSensitive) {
+                var myString = string.split(" ");
+                for (var i = 0; i < myString.length; i++) {
+                    if (myString[i] == word) {
+                        return "There is a word like this in this string!";
+                    }
+                }
+                return "No such word.";
+            }
+            else {
+                var myString = string.toLowerCase().split(" ");
+                var myWord = word.toLowerCase();
+                for (var i = 0; i < myString.length; i++) {
+                    if (myString[i] == word) {
+                        return "There is a word like this in this string!";
+                    }
+                }
+                return "No such word.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿#image-gallery-holder,
+#ninjas-gallery {
+  width: 450px;
+}
+#image-gallery-holder div,
+#ninjas-gallery div {
+  display: inline-block;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 10px 0px 0px 5px;
+}
+#image-gallery-holder div.album,
+#ninjas-gallery div.album {
+  width: 98%;
+}
+#image-gallery-holder div a,
+#ninjas-gallery div a {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}
+#image-gallery-holder div a.title,
+#ninjas-gallery div a.title {
+  font-size: 30px;
+}
+#bigPhoto {
+  float: right;
+  width: 450px;
+}
+button {
+  display: inline-block;
+  margin: 10px 200px 0px 200px;
+}

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+@model IEnumerable<WorkingWithData.Models.Tweet>
+
+<h2>@ViewBag.Title</h2>
+
+<div class="jumbotron">
+    @foreach (var tweet in Model)
+    {
+        <div>
+            @Html.DisplayFor(tweet.Text)
+            @Html.DisplayFor(tweet.Tags)
+        </div>
+    }
+</div>

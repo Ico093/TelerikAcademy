@@ -1,0 +1,24 @@
+﻿body table {
+  border-spacing: 0;
+  margin: 10px auto 10px auto;
+}
+body table tr th {
+  border: 1px solid black;
+  border-left: none;
+  text-align: center;
+  background-color: #cccccc;
+  padding: 0px 10px 0px 10px;
+}
+body table tr th:first-of-type {
+  border: 1px solid black;
+}
+body table tr td {
+  border: 1px solid black;
+  border-top: none;
+  border-left: none;
+  padding: 0px 10px 0px 10px;
+}
+body table tr td:first-of-type {
+  border: 1px solid black;
+  border-top: none;
+}

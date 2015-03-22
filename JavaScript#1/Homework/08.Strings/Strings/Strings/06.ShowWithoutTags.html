@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that extracts the content of a html page given as text. The function should return anything that is in a tag, without the tags:</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text" />
+    <button type="button" onclick="Delete()">Delete tags!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Delete()
+        {
+            debugger;
+            var text = document.getElementById("text").value.replace(/<[^<>]*>/g,"");
+
+            jsConsole.writeLine(text);
+            return text;
+        }
+    </script>
+</body>
+</html>

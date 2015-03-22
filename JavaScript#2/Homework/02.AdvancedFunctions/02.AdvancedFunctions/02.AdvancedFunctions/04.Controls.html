@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function controls() {
+            function treeView(id) {
+                debugger;
+                var div = document.createElement("div");
+                if (id != undefined && id != "") {
+                    div.id = id;
+                }
+                document.body.appendChild(div);
+
+                function addNode() {
+                    if (div.childNodes.length == 0) {
+                        div.appendChild(document.createElement("ul"));
+                    }
+                    var li = document.createElement("li");
+                    div.childNodes[0].appendChild(li);
+
+                    function content(text) {
+                        if (text != undefined && text != "") {
+                            li.innerHTML = '<a href="#">' + text + '</a>';
+                        }
+                    }
+
+                    function addNode() {
+                        if (li.childNodes.length == 1) {
+                            li.appendChild(document.createElement("ul"));
+                        }
+                        var li1 = document.createElement("li");
+                        li.childNodes[1].appendChild(li1);
+
+                        function content(text)
+                        {
+                            if (text != undefined && text != "") {
+                                li1.innerHTML = '<a href="#">'+text+'</a>';
+                            }
+                        }
+
+                        return {
+                            addNode: addNode,
+                            content: content
+                        }
+                    }
+
+                    return {
+                        addNode: addNode,
+                        content: content
+                    }
+                }
+
+
+                return {
+                    addNode: addNode
+                }
+            }
+            return {
+                treeView: treeView
+            }
+        }
+
+        debugger;
+        var controls = controls();
+        var treeView = controls.treeView("div.tree-view");
+        var jsnode = treeView.addNode();
+        jsnode.content("JavaScript");
+        var js1subnode = jsnode.addNode();
+        js1subnode.content("JavaScript - part 1");
+        var js2subnode = jsnode.addNode();
+        js2subnode.content("JavaScript - part 2");
+        var jslibssubnode = jsnode.addNode();
+        jslibssubnode.content("JS Libraries");
+        var jsframeworksnode = jsnode.addNode();
+        jsframeworksnode.content("JS Frameworks and UI");
+
+        var webnode = treeView.addNode();
+        webnode.content("Web");
+
+    </script>
+</body>
+</html>

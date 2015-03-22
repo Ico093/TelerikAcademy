@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Grid View</title>
+    <script src="JavaScript/jQuery-1.11.0.min.js"></script>
+    <script src="JavaScript/Task5.js"></script>
+    <style>
+        body table {
+            border-spacing: 0;
+            margin: 10px auto 10px auto;
+        }
+
+            body table tr th {
+                border: 1px solid black;
+                border-left: none;
+                text-align: center;
+                background-color: #cccccc;
+                padding: 0px 10px 0px 10px;
+            }
+
+                body table tr th:first-of-type {
+                    border: 1px solid black;
+                }
+
+            body table tr td {
+                border: 1px solid black;
+                border-top: none;
+                border-left: none;
+                padding: 0px 10px 0px 10px;
+            }
+
+                body table tr td:first-of-type {
+                    border: 1px solid black;
+                    border-top: none;
+                }
+
+    </style>
+</head>
+<body>
+    <script>
+        var gridView1 = new GridView();
+
+        debugger;
+        var header = gridView1.addHeader("loko");
+        header.addData("plovdiv");
+
+        var gridView2 = new GridView();
+        var data2 = gridView2.addRow("pena");
+        data2.addData("s moskoveca");
+
+        var data1 = gridView1.addRow(gridView2);
+        $("body").html(gridView1.render());
+    </script>
+</body>
+</html>

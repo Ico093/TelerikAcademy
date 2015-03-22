@@ -1,0 +1,75 @@
+﻿body,
+div,
+ul,
+li,
+a,
+span,
+img {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+  font-size: 16px;
+}
+body #wrapper {
+  margin: 25px;
+  width: 380px;
+  height: 200px;
+}
+body #wrapper ul {
+  background: -moz-linear-gradient(top, #8169ff 0%, #ffffff 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8169ff), color-stop(100%, #ffffff));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #8169ff 0%, #ffffff 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #8169ff 0%, #ffffff 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #8169ff 0%, #ffffff 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #8169ff 0%, #ffffff 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87e0fd', endColorstr='#05abe0', GradientType=0);
+  /* IE6-8 */
+
+  height: 200px;
+  width: 150px;
+  border-top-left-radius: 5px;
+  overflow-y: scroll;
+}
+body #wrapper ul.all-items {
+  float: left;
+}
+body #wrapper ul.seleted-items {
+  float: right;
+}
+body #wrapper ul li {
+  height: 20px;
+  border-bottom: 1px solid black;
+  padding: 5px 0px 4px 15px;
+}
+body #wrapper ul li:first-letter {
+  text-decoration: underline;
+}
+body #wrapper ul li.selected {
+  background: #6c4eff;
+}
+body #wrapper a {
+  float: left;
+  margin-top: 90px;
+}
+body #wrapper a.btn-unselect {
+  margin-left: 4px;
+  margin-right: 2px;
+}
+body #wrapper a.btn-select {
+  margin-left: 2px;
+  margin-right: 4px;
+}

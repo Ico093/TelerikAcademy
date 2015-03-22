@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form</title>
+</head>
+<body>
+    <section>
+        <form method="get" action="form.aspx">
+            <label for="Member">Member name:</label>
+            <input type="text" id="Member" name="Member name" required="required"/>*req<br />
+
+            <label for="Email">Email :</label>
+            <input type="email" id="Email" name="Email" required="required" pattern="^[a-zA-Z0-9._]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+"/>*req<br />
+
+            <label for="School">School :</label>
+            <input type="text" id="School" name="School" required="required" pattern="&#34;[a-zA-Z]+&#34;"/>*req<br />
+
+            <input type="image" src="\Pictures\submit.jpg" />
+        </form>
+    </section>
+</body>
+</html>

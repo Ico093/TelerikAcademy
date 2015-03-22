@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function move(position, matrixDirection) {
+            switch (matrixDirection[position.R][position.C]) {
+                case "l":
+                    {
+                        position.C--;
+                        break;
+                    }
+                case "r":
+                    {
+                        position.C++;
+                        break;
+                    }
+                case "u":
+                    {
+                        position.R--;
+                        break;
+                    }
+                case "d":
+                    {
+                        position.R++;
+                        break;
+                    }
+            }
+        }
+
+        function Solve(args) {
+            var split = args[0].split(" ");
+            var N = parseInt(split[0]);
+            var M = parseInt(split[1]);
+
+            var split = args[1].split(" ");
+            var position = {
+                R: parseInt(split[0]),
+                C: parseInt(split[1])
+            }
+
+            var matrixNumbers = new Array();
+            var matrixDirection = new Array();
+
+            var counter = 1;
+            for (var i = 0; i < N; i++) {
+                split = args[2 + i].split("");
+                matrixDirection.push(new Array());
+                matrixNumbers.push(new Array());
+                for (var j = 0; j < M; j++) {
+                    matrixNumbers[i].push(counter);
+                    counter++;
+
+                    matrixDirection[i].push(split[j]);
+                }
+            }
+            var isOut = false;
+            var isCaught = false;
+
+            var sum = 0;
+            var cells = 0;
+
+            while (!isCaught && !isOut) {
+                if (position.R >= 0 && position.R < N && position.C >= 0 && position.C < M) {
+                    if (matrixNumbers[position.R][position.C] == 0) {
+                        isCaught = true;
+                    }
+                    else {
+                        sum += matrixNumbers[position.R][position.C];
+                        cells++;
+                        matrixNumbers[position.R][position.C] = 0;
+                        move(position, matrixDirection);
+                    }
+                }
+                else {
+                    isOut = true;
+                }
+            }
+            debugger;
+
+            if (isOut) {
+                return "out " + sum;
+            }
+            else {
+                return "lost " + cells;
+            }
+        }
+
+
+
+        Solve(["3 4", "1 3", "lrrd", "dlll", "rddd"]);
+
+        //function asd(R)
+        //{
+        //    R=2;
+        //}
+
+        //debugger;
+        //var c = new Number(3);
+        //console.log(typeof c);
+        //asd(c);
+        //console.log(typeof c);
+        //console.log(c.valueOf());
+
+    </script>
+</body>
+</html>

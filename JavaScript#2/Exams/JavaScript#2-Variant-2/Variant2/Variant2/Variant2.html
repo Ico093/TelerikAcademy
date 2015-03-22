@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Varian2.css" rel="stylesheet" />
+    <script src="Variant2.js"></script>
+</head>
+<body>
+    <div id="image-gallery-holder"></div>
+    <div id="bigPhoto"></div>
+    <div id="ninjas-gallery"></div>
+    <script>
+        var gallery = controls.getImageGallery("#image-gallery-holder");
+        var ninjasAlbum = gallery.addAlbum("<br>Ninjas");
+        gallery.addImage("JS Ninja", "images/javascript-ninja.png");
+        gallery.addImage("JS Ninja", "images/javascript-ninja.png");
+        gallery.addImage("JS Ninja", "images/javascript-ninja.png");
+        ninjasAlbum.addImage("JS Ninja 2", "images/javascript-ninja.png");
+        ninjasAlbum.addImage("JS Ninja 2", "images/javascript-ninja.png");
+        ninjasAlbum.addImage("JS Ninja 2", "images/javascript-ninja.png");
+        var kidsAlbum = ninjasAlbum.addAlbum("Kids Ninjas");
+        kidsAlbum.addImage("Kid Ninja", "images/javascript-ninja.png");
+        kidsAlbum.addImage("Kid Ninja", "images/javascript-ninja.png");
+        var kidsAlbum = ninjasAlbum.addAlbum("AKids Ninjas");
+        kidsAlbum.addImage("Kid Ninja", "images/javascript-ninja.png");
+        kidsAlbum.addImage("Kid Ninja", "images/javascript-ninja.png");
+
+        var ninjasAlbum = gallery.addAlbum("ANinjas");
+        ninjasAlbum.addImage("JS Ninja 2", "images/javascript-ninja.png");
+        ninjasAlbum.addImage("JS Ninja 2", "images/javascript-ninja.png");
+        ninjasAlbum.addImage("JS Ninja 2", "images/javascript-ninja.png");
+        var kidsAlbum = ninjasAlbum.addAlbum("Kids Ninjas");
+        kidsAlbum.addImage("Kid Ninja", "images/javascript-ninja.png");
+        kidsAlbum.addImage("Kid Ninja", "images/javascript-ninja.png");
+        gallery.render();
+
+        //add images and albums to an ImageGallery
+        var imageGalleryData = gallery.getImageGalleryData();
+        console.log(imageGalleryData);
+        imageGalleryRepository.save("ninjas-gallery", imageGalleryData);
+
+        var imageGalleryData = imageGalleryRepository.load("ninjas-gallery");
+        console.log(imageGalleryData);
+        var ninjasGallery = controls.buildImageGallery("#ninjas-gallery", imageGalleryData);
+        ninjasGallery.render();
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkPerformance.Data", "EntityFrameworkPerformance.Data\EntityFrameworkPerformance.Data.csproj", "{F501EDF8-9F98-41E6-9634-284636BE9EF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkPerformance.Client", "EntityFrameworkPerformance.Client\EntityFrameworkPerformance.Client.csproj", "{60BC3FE9-E6B2-4A51-AFE3-AC0CEFB28C14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F501EDF8-9F98-41E6-9634-284636BE9EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F501EDF8-9F98-41E6-9634-284636BE9EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F501EDF8-9F98-41E6-9634-284636BE9EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F501EDF8-9F98-41E6-9634-284636BE9EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60BC3FE9-E6B2-4A51-AFE3-AC0CEFB28C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BC3FE9-E6B2-4A51-AFE3-AC0CEFB28C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BC3FE9-E6B2-4A51-AFE3-AC0CEFB28C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BC3FE9-E6B2-4A51-AFE3-AC0CEFB28C14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

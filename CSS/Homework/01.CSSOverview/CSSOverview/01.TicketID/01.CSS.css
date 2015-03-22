@@ -1,0 +1,66 @@
+﻿body {
+    background-color: #595959;
+    font-family: Arial;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+th {
+    width: 50%;
+    text-align: left;
+    font-size: 22px;
+}
+
+.normal {
+    color: #abb1ab;
+}
+
+.orangish {
+    color: #eeeead;
+}
+
+#lower {
+    margin-top:10px;
+}
+
+#somethingBefore:before {
+    content: "●";
+    color: #71b47a;
+    font-size: 28px;
+    text-align: center;
+    vertical-align: central;
+}
+
+#NoActive {
+    color: #fb0b1a;
+    padding-top: 0px;
+}
+
+#NotAnswered {
+    color: #dd6830;
+}
+
+td:first-of-type {
+    text-align: start;
+    vertical-align: top;
+    color: #dfdfdf;
+    padding-left: 0px;
+    font-style: italic;
+}
+
+td {
+    padding: 10px;
+    padding-left: 20px;
+}
+
+a {
+    margin-top: 0px;
+    text-decoration: none;
+}
+
+div {
+    padding: 0px;
+    margin: 0px;
+}

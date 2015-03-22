@@ -1,0 +1,120 @@
+﻿body, div, ul, li, table, tr, td, a, p, h1 {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+}
+
+.linear-gradient(@from-color,@pass-color,@to-color,@from-pos,@pass-pos,@to-pos) {
+    background: -moz-linear-gradient(top, @from-color @from-pos, @pass-color @pass-pos, @pass-pos @pass-pos+30%, @to-color @to-pos); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-pos,@from-color), color-stop(@pass-pos,@pass-pos), color-stop(@pass-pos+30%,@pass-pos), color-stop(@to-pos,@to-color)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* IE10+ */
+    background: linear-gradient(to bottom, @from-color @from-pos,@pass-color @pass-pos,@pass-color @pass-pos+30%,@to-color @to-pos); /* W3C */
+}
+
+
+
+body {
+    font-family: 'Courier New', Courier, 'Nimbus Mono L', monospace;
+    font-size: 16px;
+
+
+    #wrapper {
+        width: 525px;
+
+        img {
+            width: 15px;
+            height: 15px;
+        }
+
+        ul {
+            margin: 25px;
+
+            & > li {
+                display: inline-block;
+                border: 1px solid black;
+                border-right: none;
+                .linear-gradient(#ababab,#ababab,#d8d8d8,0%,0%,80%);
+
+                &:first-of-type {
+                    border-top-left-radius: 15px;
+                }
+
+                &:last-of-type {
+                    border-top-right-radius: 15px;
+                    border-right: 1px solid black;
+                }
+
+                &:hover {
+                    border-bottom-color: #d8d8d8;
+                }
+
+                    &:hover div {
+                        display: inline-block;
+                        width: 497px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        margin-top: 58px;
+
+                        ul {
+                            margin: 0;
+                            margin-left: 25px;
+                            border: 1px solid black;
+                            border-top: none;
+
+                            & > li {
+                                width: 470px;
+                                border: none;
+                                border-radius: 0px;
+                                background: #d8d8d8;
+
+                                &:first-of-type {
+                                    border-top-left-radius: 0;
+                                }
+
+                                &:last-of-type {
+                                    border-top-right-radius: 0;
+                                    border: none;
+                                }
+
+                                a {
+                                    padding-bottom: 0;
+
+                                    img {
+                                        margin-top: 2px;
+                                    }
+
+                                    span {
+                                        font-size: 16px;
+                                        padding-left: 5px;
+
+                                        &:hover {
+                                            text-decoration: underline;
+                                        }
+
+                                        strong {
+                                            color: #666464;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                    font-size: 19px;
+                    padding: 5px 15px 5px 16px;
+                    color: #947f7b;
+                }
+            }
+        }
+
+        .content {
+            display: none;
+        }
+    }
+}

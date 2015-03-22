@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>You are given a text. Write a function that changes the text in all regions:
+        <upcase>text</upcase>
+        to uppercase.
+        <lowcase>text</lowcase>
+        to lowercase
+        <mixcase>text</mixcase>
+        to mix casing(random)
+    </title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text">Enter text:</label>
+    <input type="text" id="text" />
+    <button type="button" onclick="Replace()">Replace!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Replace()
+        {
+            var text = document.getElementById("text").value.split(/[<>]+/);
+            var newString = "";
+
+            debugger;
+            for (var i = 0; i < text.length; i++) {
+                if(text[i]==="mixcase")
+                {
+                    if (i + 1 < text.length) {
+                        for (var j = 0; j < text[i + 1].length; j++) {
+                            if (Math.random()>0.4) {
+                                newString += text[i + 1][j];
+                            }
+                            else {
+                                newString += text[i + 1][j].toUpperCase();
+                            }
+                        }
+                        i += 2;
+                    }
+                }
+                else if(text[i]==="upcase")
+                {
+                    if (i + 1 < text.length) {
+                        newString += text[i + 1].toUpperCase();
+                        i += 2;
+                    }
+                }
+                else if(text[i]==="lowcase")
+                {
+                    if (i + 1 < text.length) {
+                        newString += text[i + 1].toLowerCase();
+                        i += 2;
+                    }
+                }
+                else
+                {
+                    newString += text[i];
+                }
+            }
+
+            jsConsole.writeLine(newString);
+            return newString;
+        }
+    </script>
+
+</body>
+</html>

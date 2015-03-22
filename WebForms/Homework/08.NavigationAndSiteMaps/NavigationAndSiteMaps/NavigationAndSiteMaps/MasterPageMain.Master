@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPageMain.master.cs" Inherits="NavigationAndSiteMaps.MasterPageMain" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:Menu DataSourceID="StiteMapDataSourceMain" Orientation="Horizontal" StaticDisplayLevels="1" runat="server" />
+        <asp:SiteMapPath runat="server" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <asp:SiteMapDataSource ID="StiteMapDataSourceMain" ShowStartingNode="false" runat="server" />
+    </form>
+</body>
+</html>

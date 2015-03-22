@@ -1,0 +1,81 @@
+﻿body {
+    background-color: #eeeeee;
+    font-family: Batang;
+    font-size:12px;
+}
+
+body, div, a, img, ul, li, button {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 17px;
+    font-weight: normal;
+    margin-left:10px;
+    letter-spacing:0px;
+}
+
+img {
+    width: 135px;
+    height: 90px;
+    float: left;
+    position: relative;
+    padding:5px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    width: 360px;
+    height: 100px;
+    margin: 12px;
+    border: solid;
+    border-width: 1px;
+    border-color: #a7a7a7;
+    padding: 10px;
+    background-color: white;
+    margin-top:40px;
+}
+
+
+button {
+    float: left;
+    display: inline-block;
+    background: url('/img/button.png') no-repeat;
+    padding-left: 5px;
+    padding-bottom:10px;
+    border: none;
+    background-size: auto;
+    margin-top: 10px;
+    color: white;
+}
+
+.Listen {
+    width: 73px;
+    height: 35px;
+    margin-left: 65px;
+    margin-right:2px;
+}
+
+.Add {
+    width:60px;
+    height: 35px;
+}
+
+div {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    margin: 0;
+    margin-left: 10px;
+    float: left;
+}
+
+p {
+    margin-top: 5px;
+    width:200px;
+    font-size:11px;
+}

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        ul,li{
+            margin:0;
+            padding:0;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        li {
+            display: block;
+        }
+
+        #listWrapper {
+            width: 385px;
+            height: 500px;
+            border: solid 1px black;
+            margin-left: 2px;
+            padding-top:10px;
+            padding-left:10px;
+        }
+
+        .selected {
+            background-color: lightgreen;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" id="todo" placeholder="What to do next?" />
+        <button type="button" id="add">Add</button>
+        <button type="button" id="delete">Delete</button>
+        <button type="button" id="hide">Hide</button>
+        <button type="button" id="show">Show all!</button>
+    </form>
+    <div id="listWrapper">
+        <ul id="list">
+        </ul>
+    </div>
+    <script>
+        var buttonAdd = document.getElementById("add");
+        var buttonDelete = document.getElementById("delete");
+        var buttonHide = document.getElementById("hide");
+        var buttonShow = document.getElementById("show");
+        var list = document.getElementById("list");
+        var input = document.getElementById("todo");
+
+        if (document.addEventListener) {
+            buttonAdd.addEventListener("click", add, false);
+            buttonDelete.addEventListener("click", del, false);
+            buttonHide.addEventListener("click", hide, false);
+            buttonShow.addEventListener("click", show, false);
+        }
+        else if (document.attachEvent) {
+            buttonAdd.attachEvent("onclick", add);
+            buttonDelete.attachEvent("onclick", del);
+            buttonHide.attachEvent("onclick", hide);
+            buttonShow.attachEvent("onclick", show);
+        }
+        else {
+            buttonAdd["onclick"] = add;
+            buttonDelete["onclick"] = del;
+            buttonHide["onclick"] = hide;
+            buttonShow["onclick"] = show;
+        }
+
+        function add(ev) {
+            var li = document.createElement("li");
+            li.textContent = input.value;
+
+            if (document.addEventListener) {
+                li.addEventListener("click", selectMe, false);
+            }
+            else if (document.attachEvent) {
+                li.attachEvent("click", selectMe);
+            }
+            else {
+                li["click"] = selectMe;
+            }
+
+            list.appendChild(li);
+        }
+
+        function del() {
+            var toDelete = list.getElementsByClassName("selected");
+            for (var i = 0, length = toDelete.length; i < length; i++) {
+                list.removeChild(toDelete[0]);
+            }
+        }
+
+        function hide() {
+            var toHide = list.getElementsByClassName("selected");
+            for (var i = 0, length = toHide.length; i < length; i++) {
+                toHide[0].className = "hidden";
+            }
+        }
+
+        function show() {
+            var toShow = list.getElementsByClassName("hidden");
+            for (var i = 0, length = toShow.length; i < length ; i++) {
+                toShow[0].className = "";
+            }
+        }
+
+        function selectMe(ev) {
+            ev.preventDefault();
+            ev = ev || window.event;
+
+            if (ev.target.className == "selected") {
+                ev.target.className = "";
+            }
+            else {
+                ev.target.className = "selected";
+            }
+        }
+
+    </script>
+</body>
+</html>

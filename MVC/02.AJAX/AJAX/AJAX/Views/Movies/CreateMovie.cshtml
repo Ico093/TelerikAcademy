@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Create Movie";
+}
+
+@model AJAX.Models.Movie
+
+<div class="row">
+    <h1>@ViewBag.Title</h1>
+
+    @using (Html.BeginForm("CreateMovie"))
+    {
+        @Html.Label("Title", "Title")
+        @Html.TextBoxFor(x => x.Title)
+        <br />
+
+        @Html.Label("Director", "Director")
+        @Html.TextBoxFor(x => x.Director)
+        <br />
+
+        @Html.Label("Year", "Year")
+        @Html.TextBoxFor(x => x.Year)
+        <br />
+
+        @Html.Label("LeadingMaleRole", "Leading Male Role")
+        @Html.TextBoxFor(x => x.LeadingMaleRole)
+        <br />
+
+        @Html.Label("LeadingFemaleRole", "Leading Female Role")
+        @Html.TextBoxFor(x => x.LeadingFemaleRole)
+        <br />
+
+        @Html.Label("Age", "Age")
+        @Html.TextBoxFor(x => x.Age)
+        <br />
+
+        @Html.Label("Studio", "Studio")
+        @Html.TextBoxFor(x => x.Studio)
+        <br />
+
+        @Html.Label("StudioAddress", "Studio Address")
+        @Html.TextBoxFor(x => x.StudioAddress)
+        <br />
+
+        <input type="submit" name="Submit" value="Submit" />
+    }
+</div>

@@ -1,0 +1,27 @@
+Line 1: using System;
+Line 2: using System.IO;
+Line 3: 
+Line 4: class NumberInfrontOfLine
+Line 5: {
+Line 6:     static void Main()
+Line 7:     {
+Line 8:         StreamReader reader = new StreamReader("..\\..\\NumberInfrontOfLine.cs");
+Line 9:         StreamWriter writer = new StreamWriter("..\\..\\MyFile.text");
+Line 10: 
+Line 11:         using (writer)
+Line 12:         {
+Line 13:             using (reader)
+Line 14:             {
+Line 15:                 int lineNumber = 0;
+Line 16:                 string line="";
+Line 17:                 while (line != null)
+Line 18:                 {
+Line 19:                     lineNumber++;
+Line 20: 
+Line 21:                     writer.WriteLine("Line {0}: {1}", lineNumber, line=reader.ReadLine());
+Line 22:                 }
+Line 23:             }
+Line 24:         }
+Line 25:     }
+Line 26: }
+Line 27: 

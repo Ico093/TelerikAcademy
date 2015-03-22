@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that formats a string using placeholders</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var format = "{0}, {1}, {0} text {2}";
+        var str = stringFormat(format, 1, "Pesho", "Gosho");
+
+        function stringFormat(format) {
+            debugger;
+            var argum = new Array();
+            for (var i = 1; i < arguments.length; i++) {
+                format=format.replace(new RegExp("{["+(i-1)+"]}","g"),arguments[i]);
+            }
+            jsConsole.writeLine(format);
+            return format;
+        }
+    </script>
+</body>
+</html>

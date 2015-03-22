@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function parse(message, arguments) {
+            if (message != undefined) {
+                debugger;
+                for (var i = 1; i < arguments.length; i++) {
+                    message=message.replace(new RegExp("{[" + (i-1) + "]}", "g"), arguments[i]);
+                }
+            }
+            return message;
+        }
+
+        function consoleUSER()
+        {
+            function writeLine(text)
+            {
+                text = parse(text, arguments);
+                var textLine = document.createElement("span");
+                if (text != undefined && text != "") {
+                    textLine.textContent = text.toString();
+                    document.body.appendChild(textLine);
+                    document.body.appendChild(document.createElement("br"));
+                }
+            }
+
+            function writeWarning(text) {
+                text = parse(text, arguments);
+                if (text != undefined && text != "") {
+                    console.warn(text.toString());
+                }
+            }
+
+
+            function writeError(text) {
+                text = parse(text, arguments);
+                if (text != undefined && text != "") {
+                    console.error(text.toString());
+                }
+            }
+
+            return {
+                writeLine: writeLine,
+                writeWarning: writeWarning,
+                writeError:writeError
+            }
+        }
+
+
+        var user = consoleUSER();
+
+        user.writeLine("His name is Kalin!");
+
+        user.writeLine("His name is {0}!", "Kalin");
+
+        user.writeWarning("His name is Kalin!");
+
+        user.writeWarning("His name is {0}!", "Kalin");
+
+        user.writeError("His name is Kalin!");
+
+        user.writeError("His name is {0}!", "Kalin");
+
+    </script>
+</body>
+</html>

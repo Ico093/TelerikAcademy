@@ -1,0 +1,120 @@
+﻿#wrapper, body, aside, ul, li, a, body, html, table, td, th, h1, p, span {
+    margin: 0;
+    padding: 0;
+}
+
+.linear-gradient(@from-color,@to-color,@from-percent,@to-percent) {
+    background: -moz-linear-gradient(top, @from-color @from-percent, @to-color @to-percent); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-percent,@from-color), color-stop(@to-percent,@to-color)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* IE10+ */
+    background: linear-gradient(to bottom, @from-color @from-percent,@to-color @to-percent); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-8 */
+}
+
+body {
+    @default-font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+    @font-family-fo-dates: Consolas;
+    @default-font-size: 16px;
+
+    font-family: @default-font-family;
+    font-size: @default-font-size;
+
+    #wrapper {
+        width: 380px;
+        height: 465px;
+        margin: 30px;
+        border: 1px solid black;
+        border-radius: 15px;
+        .linear-gradient(#eeeeee,#aaaaaa,0%,100%);
+        color: #555555;
+
+        h1 {
+            font-size: 29px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                clear: both;
+                width: 230px;
+                border: 1px solid black;
+                border-radius: 15px;
+                margin: 5px 15px 0px 15px;
+
+                &:first-of-type {
+                    margin: 10px 15px 0px 15px;
+                }
+
+                span {
+                    margin-left: 15px;
+                    font-weight: bold;
+                    font-size: 18px;
+                    display: block;
+                    margin-top: 5px;
+                }
+
+                p {
+                    margin-left: 15px;
+                    clear: both;
+                }
+
+                span.date {
+                    float: right;
+                    font-family: @font-family-fo-dates;
+                    margin-right: 15px;
+                    font-size: 13px;
+                    font-weight: normal;
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                }
+
+
+                &.me-item {
+                    float: right;
+                    .linear-gradient(#29edff,#befaff,30%,100%);
+                }
+
+                &.toshko-item {
+                    float: left;
+                    .linear-gradient(#dfffd2,#6fff3b,0%,70%);
+
+                    span {
+                        float: right;
+                        margin-right: 15px;
+                    }
+
+                        span.date {
+                            float: left;
+                        }
+                }
+            }
+        }
+
+        input {
+            clear: both;
+            float: left;
+            width: 275px;
+            height: 33px;
+            margin: 7px 0px 0px 15px;
+            background: #eeeeee;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            float: left;
+            margin: 8px 15px 0px 3px;
+            width:70px;
+            height:30px;
+            .linear-gradient(#ebebeb,#ababab,0%,100%);
+            border:none;
+            border-radius:5px;
+            font-size:19px;
+        }
+    }
+}

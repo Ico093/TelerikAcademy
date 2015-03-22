@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function to count the number of divs on the web page</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <button type="button" onclick="count()">How many divs?</button>
+     <button type="button" onclick="addDiv()">Add div!</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function count() {  
+            jsConsole.writeLine(document.getElementsByTagName("div").length);
+        }
+
+        function addDiv()
+        {
+            document.body.appendChild(document.createElement("div"));
+        }
+    </script>
+</body>
+</html>

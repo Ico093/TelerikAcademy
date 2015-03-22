@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function generateTagCloud(tags,minSize,maxSize)
+        {
+            var tagsObj = {};
+            for (var i = 0; i < tags.length; i++) {
+                if(tagsObj.hasOwnProperty(tags[i].toLowerCase()))
+                {
+                    tagsObj[tags[i].toLowerCase()] += 1;
+                }
+                else
+                {
+                    tagsObj[tags[i].toLowerCase()] = 1;
+                }
+            }
+
+            var arr = new Array();
+
+            for (var prop in tagsObj) {
+                if(arr[tagsObj[prop]]==undefined)
+                {
+                    arr[tagsObj[prop]] = new Array(prop);
+                }
+                else
+                {
+                    arr[tagsObj[prop]].push(prop);
+                }
+            }
+            debugger;
+
+            arr=arr.filter(function (value, index, arr) { return arr[index] != undefined; });
+            var step = (maxSize - minSize) / arr.length;
+            var add = 0;
+
+            var create=document.createDocumentFragment();
+            for (var i = 0; i < arr.length; i++) {
+                var span = document.createElement("span");
+                span.textContent = arr[arr.length - 1 - i].join(" ");
+                span.style.fontSize = maxSize - add+"px";
+                add += step;
+                create.appendChild(span);
+            }
+
+            return create;
+        }
+
+        var tags = ["cms", "javascript", "js", "ASP.NET MVC", ".net", ".net", "css", "wordpress", "xaml", "js", "http", "web", "asp.net", "asp.net MVC", "ASP.NET MVC", "wp", "javascript", "js", "cms", "html", "javascript", "http", "http", "CMS"]
+
+        var tagCloud = generateTagCloud(tags, 17, 42);
+        
+        document.body.appendChild(tagCloud);
+    </script>
+</body>
+</html>

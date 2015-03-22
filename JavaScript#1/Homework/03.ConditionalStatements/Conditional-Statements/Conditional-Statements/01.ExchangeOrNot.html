@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write an if statement that examines two integer variables and exchanges their values if the first one is greater than the second one.</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="tb-number1">Number1:</label>
+    <input type="text" id="tb-number1" />
+    <label for="tb-number2">Number2:</label>
+    <input type="text" id="tb-number2" />
+    <button type="button" onclick="ExchangeOrNot()">Exchange or not?</button>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function ExchangeOrNot() {
+            var number1 = jsConsole.readInteger("#tb-number1");
+            var number2 = jsConsole.readInteger("#tb-number2");
+            if (number1 > number2) {
+                number2 += number1;
+                number1 = number2 - number1;
+                number2 -= number1;
+            }
+            jsConsole.writeLine("Fist number: " + number1 + " Second number: " + number2)
+        }
+    </script>
+</body>
+</html>

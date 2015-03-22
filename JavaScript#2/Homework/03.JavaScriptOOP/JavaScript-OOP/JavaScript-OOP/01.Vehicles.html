@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        Function.prototype.inherit = function (parent) {
+            this.prototype = new parent();
+            this.prototype.constructor = parent;
+        }
+
+        Function.prototype.extend = function (parent) {
+            for (var i = 0; i < arguments[i]; i++) {
+                this.prototype[arguments[i]] = parent.prototype[arguments[i]];
+            }
+        }
+
+        function Wheel(radius) {
+            var self = this;
+            self.radius = radius || 0;
+
+            self.acceleration = function acceleration() {
+                return 2 * Math.PI * self.radius;
+            }
+        }
+
+        function PropellingNozle(power, powerSwitch) {
+            var self = this;
+            self.power = power || 0;
+            self.powerSwitch = powerSwitch || "off";
+
+            self.acceleration = function acceleration() {
+                if (powerSwitch == "on") {
+                    return self.power * 2;
+                }
+                else {
+                    return self.power;
+                }
+            }
+        }
+
+        function Propeller(numberOfFins, spinDirection) {
+            var self = this;
+            self.numberOfFins = numberOfFins || 0;
+            self.spinDirection = spinDirection || "clockwise";
+
+            self.acceleration = function acceleration() {
+                if (spinDirection == "clockwise") {
+                    return self.numberOfFins;
+                }
+                else {
+                    return -self.numberOfFins;
+                }
+            }
+        }
+
+        function Vehicle(speed, units) {
+            var self = this;
+            self.speed = speed;
+            self.units = units;
+
+            self.acceleration = function acceleration() {
+                if (units instanceof Array) {
+                    for (var i = 0; i < units.length; i++) {
+                        self.speed += units[i].acceleration();
+                    }
+                }
+                else {
+                    self.speed += units.acceleration();
+                }
+            }
+        }
+
+        function LandVehicle(speed, wheels) {
+            var self = this;
+            if (wheels.length != 4) {
+                throw "LandVehicles have 4 wheels!";
+            }
+            else {
+                Vehicle.call(this, speed, wheels);
+            }
+        }
+        LandVehicle.inherit(Vehicle);
+        LandVehicle.extend(Vehicle, "acceleration");
+
+        function AirVehicle(speed, nozzle) {
+            var self = this;
+            Vehicle.call(this, speed, nozzle);
+
+            self.powerSwitch = function powerSwitch() {
+                if (self.units.powerSwitch == "on") {
+                    self.units.powerSwitch == "off";
+                }
+                else {
+                    self.units.powerSwitch == "on";
+                }
+            }
+        }
+        AirVehicle.inherit(Vehicle);
+        AirVehicle.extend(Vehicle, "acceleration");
+
+        function WaterVehicle(speed, propellersNumber, propellers) {
+            var self = this;
+            Vehicle.call(this, speed, propellers);
+
+            self.changeDirection = function changeDirection(direction) {
+                for (var i = 0; i < self.units.length; i++) {
+                    self.units[i].direction = direction;
+                }
+            }
+        }
+        WaterVehicle.inherit(Vehicle);
+        WaterVehicle.extend(Vehicle, "acceleration");
+
+        function AmphibiousVehicle(speed, wheels, propellers) {
+            var self = this;
+            self.wheels = wheels;
+            self.propellers = propellers;
+            Vehicle.call(this, speed, wheels);
+            self.mode = "land";
+
+            self.accelerationDepending = function accelerationDepending() {
+                if (self.mode == "land") {
+                    self.units = self.wheels;
+                    acceleration();
+                }
+                else {
+                    self.units = self.propellers;
+                    acceleration();
+                }
+            }
+
+            self.changeMode = function changeMode() {
+                if (self.mode == "land") {
+                    self.mode = "water";
+                }
+                else {
+                    self.mode = "land";
+                }
+            }
+        }
+        AmphibiousVehicle.inherit(Vehicle);
+        AmphibiousVehicle.extend(Vehicle, "acceleration");
+
+        var wheels = new Array(new Wheel(12), new Wheel(12), new Wheel(14), new Wheel(14));
+        var propellers = new Array(new Propeller(2), new Propeller(4));
+        var nozzle = new PropellingNozle(40);
+
+        var landVehicle = new LandVehicle(15, wheels);
+        var waterVehicle = new WaterVehicle(4, 2, propellers);
+        var airVehicle = new AirVehicle(40, nozzle);
+        var amphibiousVechicle = new AmphibiousVehicle(10, wheels, propellers);
+
+        console.log(landVehicle.speed);
+        landVehicle.acceleration();
+        console.log(landVehicle.speed);
+
+        console.log("--------------------------------");
+        console.log(waterVehicle.speed);
+        waterVehicle.acceleration();
+        console.log(waterVehicle.speed);
+
+        console.log("--------------------------------");
+        console.log(airVehicle.speed);
+        airVehicle.acceleration();
+        console.log(airVehicle.speed);
+
+        console.log("--------------------------------");
+        console.log(amphibiousVechicle.speed);
+        amphibiousVechicle.acceleration();
+        console.log(amphibiousVechicle.speed);
+
+    </script>
+</body>
+</html>

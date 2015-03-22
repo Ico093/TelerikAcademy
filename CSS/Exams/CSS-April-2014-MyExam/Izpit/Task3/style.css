@@ -1,0 +1,112 @@
+﻿body,
+html,
+div,
+header,
+h1,
+nav,
+ul,
+li,
+a,
+article {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 18px;
+  font-family: Arial;
+  margin: 8px;
+}
+#root {
+  width: 610px;
+  color: #2aa0bd;
+}
+#root h1 {
+  font-size: 34px;
+  font-style: italic;
+  text-align: center;
+}
+#root div.chat-container {
+  float: left;
+  margin: 23px 0px;
+  width: 300px;
+  height: 500px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background: -moz-linear-gradient(top, #4ae871 40%, #f1ffbc 60%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, #4ae871), color-stop(60%, #f1ffbc));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #4ae871 40%, #f1ffbc 60%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #4ae871 40%, #f1ffbc 60%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #4ae871 40%, #f1ffbc 60%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #4ae871 40%, #f1ffbc 60%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87e0fd', endColorstr='#05abe0', GradientType=0);
+  /* IE6-8 */
+
+}
+#root div.chat-container h2 {
+  width: 300px;
+  text-align: center;
+}
+#root div.chat-container div.messages ul {
+  margin: 40px 15px 0px 15px;
+  list-style: none;
+}
+#root div.chat-container div.messages ul li {
+  border-bottom: 1px solid black;
+}
+#root div.chat-container div.messages ul li strong {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+}
+#root div.chat-container div.messages ul li span {
+  display: block;
+}
+#root div.chat-container div.messages ul li:last-of-type {
+  border: none;
+}
+#root div.chat-container div.sent-message {
+  clear: both;
+  position: absolute;
+  top: 545px;
+  margin-left: 5px;
+  border: 1px solid grey;
+}
+#root #me {
+  margin-right: 5px;
+}
+#root #me ul li.me {
+  width: 270px;
+}
+#root #me ul li.other {
+  float: right;
+}
+#root #me ul li.other span {
+  float: right;
+}
+#root #other ul li.me {
+  float: left;
+}
+#root #other ul li.other {
+  width: 270px;
+  float: right;
+}
+#root #other ul li.other strong {
+  float: right;
+}
+#root #other ul li.other span {
+  clear: both;
+  float: right;
+}

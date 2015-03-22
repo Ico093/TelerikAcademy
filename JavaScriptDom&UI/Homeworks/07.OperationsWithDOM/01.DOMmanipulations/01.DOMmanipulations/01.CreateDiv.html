@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <label for="number">Number of divs:</label>
+    <input type="text" id="number" />
+    <button type="button" onclick="createDivs()">Create!</button>
+    <div id="content"></div>
+    <script>
+        function createDivs()
+        {
+            var content = document.getElementById("content");
+            var count = parseInt(document.getElementById("number").value);
+            while(content.firstChild)
+            {
+                content.removeChild(content.firstChild);
+            }
+
+            var create = document.createDocumentFragment();
+
+            for (var i = 0; i < count; i++) {
+                var div = document.createElement("div");
+                div.style.height = Math.random() * 80 + 20 + "px";
+                div.style.width = Math.random() * 80 + 20 + "px";
+                div.style.backgroundColor = generateColor();
+                div.style.color = generateColor();
+                div.style.position = "absolute";
+                div.style.left = Math.random() * (window.screen.availWidth - 100) + "px";
+                div.style.top = 50+Math.random() * (window.screen.availHeight - 360) + "px";
+                div.innerHTML = "<strong>div</strong>";
+                div.style.textAlign = "center";
+                div.style.paddingTop = parseFloat(div.style.height.slice(0, div.style.height.length - 2)) / 2 + "px";
+                div.style.border = "solid";
+                div.style.borderRadius = Math.random() * 100 + "px";
+                div.style.borderColor = generateColor();
+                div.style.borderWidth = Math.random() * 20 + "px";
+                create.appendChild(div);
+                console.log(div.style.borderColor);
+            }
+            content.appendChild(create);
+        }
+
+        function generateColor()
+        {
+            return "rgb(" + (Math.random() * 256 | 0) + "," + (Math.random() * 256 | 0) + "," + (Math.random() * 256 | 0) + ")";
+        }
+    </script>
+</body>
+</html>

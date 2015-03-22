@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #bin {
+            width: 100px;
+            height: 150px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+
+        #highScores {
+        display:none;
+        position:absolute;
+        left:500px;
+        top:100px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" onclick="Start()">Play!</button>
+    <img src="imgs/trash-closed.png" id="bin" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dontAllowDrop(event)" draggable="false" />
+    <div id="highScores"></div>
+    <script>
+        var count;
+        var timer;
+        var create = document.createDocumentFragment();
+
+        function Start() {
+            document.getElementById("highScores").style.display = "none";
+            count = 10;
+
+            for (var i = 0; i < count; i++) {
+                var picture = document.createElement("img");
+                picture.id = i;
+                picture.src = "imgs/trash.png";
+                picture.draggable = "true";
+                picture.addEventListener("dragstart", drag,false);
+                picture.style.position = "absolute";
+                picture.style.left = 200 + Math.random() * (window.innerWidth - 400) + "px";
+                picture.style.top = Math.random() * (window.innerHeight - 100) + "px";
+                create.appendChild(picture);
+            }
+
+            document.body.appendChild(create);
+
+            timer = new Date();
+        }
+
+        function End()
+        {
+            console.log();
+            timer = (new Date().getTime() - timer.getTime()) / 1000;
+            var scores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+            if(scores==[])
+            {
+                var name = prompt("You entered top 5 players. Enter your name: ") || "anonymous";
+                debugger;
+                scores.push({ name: name, score: timer });
+            }
+            else
+            {
+                var better = false;
+                for (var i = 0, length= scores.length; i <length; i++) {
+                    if(timer<scores[i].score)
+                    {
+                        better = true;
+                        var name = prompt("You entered top 5 players. Enter your name: ") || "anonymous";
+                        scores.splice(i, 0, { name: name, score: timer });
+                        if(scores.length>5)
+                        {
+                            scores.pop();
+                        }
+                    }
+                }
+                if(!better&&scores.length<5)
+                {
+                    var name = prompt("You entered top 5 players. Enter your name: ") || "anonymous";
+                    scores.push({ name: name, score: timer });
+                }
+                else if(!better&&scores.length>=5)
+                {
+                    alert("Sorry but you couldn't enter top 5!");
+                }
+            }
+
+            update(scores);
+            localStorage.setItem("highScores", JSON.stringify(scores));
+        }
+
+        function update(scores)
+        {
+            var div = document.getElementById("highScores");
+            var output = new Array();
+            output.push("High scores:");
+            for (var i = 0; i < scores.length; i++) {
+                output.push((i+1) + ". Name: " + scores[i].name + "&nbsp;&nbsp;&nbsp;Score: " + scores[i].score);
+            }
+            div.innerHTML = output.join("<br>");
+            div.style.display = "block";
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("dragged-id", ev.target.id);
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+            var bin = ev.target;
+            bin.src = "imgs/trash-opened.png";
+            bin.style.width = 140 + "px";
+        }
+
+        function dontAllowDrop(ev) {
+            ev.preventDefault();
+            var bin = ev.target;
+            bin.src = "imgs/trash-closed.png";
+            bin.style.width = 100 + "px";
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var trash = document.getElementById(ev.dataTransfer.getData("dragged-id"));
+            document.body.removeChild(trash);
+            var bin = ev.target;
+            bin.src = "imgs/trash-closed.png";
+            bin.style.width = 100 + "px";
+            count--;
+            if(count==0)
+            {
+                End();
+            }
+        }
+    </script>
+</body>
+</html>

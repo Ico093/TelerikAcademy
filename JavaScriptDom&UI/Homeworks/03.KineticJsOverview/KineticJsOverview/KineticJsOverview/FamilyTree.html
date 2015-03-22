@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="KineticJS.js"></script>
+    <script>
+        var familyMembers = [{
+            mother: 'Maria Petrova',
+            father: 'Georgi Petrov',
+            children: ['Teodora Petrova', 'Peter Petrov']
+        }, {
+            mother: 'Petra Stamatova',
+            father: 'Todor Stamatov',
+            children: ['Maria Petrova']
+        }];
+
+
+        var stage = new Kinetic.Stage({
+            container: 'container',
+            width: 1000,
+            height: 400
+        });
+
+        var layer = new Kinetic.Layer();
+
+        function myRect(x, y, width, height, text, sex) {
+            var complexText = new Kinetic.Text({
+                x: x,
+                y: y,
+                text: text,
+                fontSize: 18,
+                fontFamily: 'Calibri',
+                fill: '#555',
+                width: width,
+                padding: 20,
+                align: 'center'
+            });
+
+            var rect = new Kinetic.Rect({
+                x: x,
+                y: y,
+                stroke: '#32CD32',
+                strokeWidth: 5,
+                fill: 'white',
+                width: width,
+                height: complexText.height(),
+                cornerRadius: sex == "male" ? 10 : 25
+            });
+
+            layer.add(rect);
+            layer.add(complexText);
+        }
+
+        function myLine(x1, y1, x2, y2) {
+            var line = new Kinetic.Line({
+                points: [x1, y1 + 10, x2, y2],
+                stroke: '#32CD32',
+                lineCap: 'round',
+                tension: 1
+            });
+
+            layer.add(line);
+        }
+
+
+        myRect(200, 20, 200, 50, 'Todor Stamatov', "male");
+        myRect(500, 20, 200, 50, 'Petra Stamatova', "female");
+        myRect(50, 150, 200, 50, 'Georgi Petrov', "male");
+        myRect(350, 150, 200, 50, 'Maria Petrova', "female");
+        myLine(300, 70, 450, 150);
+        myLine(600, 70, 450, 150);
+        myRect(150, 280, 200, 50, 'Peter Petrov', "male");
+        myRect(450, 280, 200, 50, 'Teodora Petrova', "female");
+        myLine(150, 200, 250, 280);
+        myLine(450, 200, 250, 280);
+        myLine(450, 200, 550, 280);
+
+        stage.add(layer);
+    </script>
+</body>
+</html>

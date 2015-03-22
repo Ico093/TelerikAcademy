@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        button, div {
+            display: inline-block;
+        }
+
+        button {
+            position: relative;
+            top: -200px;
+        }
+
+        #large {
+            width: 700px;
+            height: 450px;
+        }
+
+            #large img {
+                width: 700px;
+                height: 450px;
+            }
+
+        #list img {
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+        }
+
+        #selected {
+            border: solid 2px green;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="left"><</button>
+    <div id="large">
+        <img src="imgs/kiten.jpg" alt="kiten" />
+    </div>
+    <button type="button" id="right">></button>
+    <br />
+    <div id="list">
+        <img src="imgs/kiten.jpg" alt="kiten" />
+        <img src="imgs/bridge.jpg" alt="bridge" />
+        <img src="imgs/sugar.jpg" alt="sugar" />
+        <img src="imgs/tree.jpg" alt="tree" />
+    </div>
+    <script>
+        var large = document.getElementById("large").childNodes[1];
+        var list = document.getElementById("list");
+        var pictures = list.getElementsByTagName("img");
+        
+        var oldPic = pictures[0];
+        var newPic = pictures[0];
+        update(newPic);
+        var buttonLeft = document.getElementById("left");
+        var buttonRight = document.getElementById("right");
+        var number = 0;
+
+        for (var i = 0; i < pictures.length ; i++) {
+            if (document.addEventListener) {
+                pictures[i].addEventListener("click", clicked, false);
+            }
+            else if (document.attachEvent) {
+                pictures[i].attachEvent("onclick", clicked);
+            }
+            else {
+                pictures[i]["onclick"] = clicked;
+            }
+        }
+
+        if (document.addEventListener) {
+            buttonLeft.addEventListener("click", moveLeft, false);
+            buttonRight.addEventListener("click", moveRight, false);
+        }
+        else if (document.attachEvent) {
+            buttonLeft.attachEvent("onclick", moveLeft);
+            buttonRight.attachEvent("onclick", moveRight);
+        }
+        else {
+            buttonLeft["onclick"] = moveLeft;
+            buttonRight["onclick"] = moveRight;
+        }
+
+        function moveLeft() {
+            number = (number - 1 + pictures.length) % pictures.length;
+            update(pictures[number]);
+        }
+
+        function moveRight() {
+            number = (number + 1) % pictures.length;
+            update(pictures[number]);
+        }
+        
+        function clicked(ev) {
+            ev.preventDefault();
+            ev = ev || window.event;
+            number = pictures.indexOf(ev.target);
+            update(ev.target);
+        }
+
+        function update(target) {
+            oldPic = newPic;
+            oldPic.id = "";
+            newPic = target;
+            newPic.id = "selected";
+            large.src = newPic.src;
+        }
+
+        NodeList.prototype.indexOf = function indexOf(elem)
+        {
+            var list = this;
+
+            for (var i = 0; i < list.length; i++) {
+                if(list[i]==elem)
+                {
+                    return i;
+                    break;
+                }
+            }
+            return -1;
+        };
+
+    </script>
+</body>
+</html>

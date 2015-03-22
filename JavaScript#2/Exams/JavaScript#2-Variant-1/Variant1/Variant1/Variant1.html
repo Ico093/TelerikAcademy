@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Variant1.css" rel="stylesheet" />
+    <script src="SchoolsCoursesStudents.js"></script>
+    <script src="Variant1.js"></script>
+</head>
+<body>
+    <div id="grid-view-holder"></div>
+    <div id="schools-repository"></div>
+    <script type="text/javascript">
+        var schoolsGrid = controls.getGridView("#grid-view-holder");
+        schoolsGrid.addHeader("Name", "Location", "Total Students", "Specialty");
+        schoolsGrid.addRow("PMG", "Burgas", 400, "Math");
+        schoolsGrid.addRow("TUES", "Sofia", 500, "IT");
+        var academyRow = schoolsGrid.addRow("Telerik Academy", "Sofia", "5000", "IT");
+        var academyGrid = academyRow.getNestedGridView();
+        academyGrid.addHeader("Title", "Start Date", "Total Students");
+        academyGrid.addRow("JS 2", "11-april-2013", 400);
+        var course = academyGrid.addRow("SEO", "15-may-2013", 1300).getNestedGridView();
+        course.addHeader("First name", "Last name", "Grade", "Mark");
+        course.addRow("Ivan", "Geshov", 11, 4);
+        academyGrid.addRow("Slice and Dice", "05-april-2013", 500);
+        schoolsGrid.render();
+
+        var tova = schoolsGrid.getGridViewData();
+        console.log(tova);
+        schoolsRepository.save("schools-repository", tova);
+        var schoolsData = schoolsRepository.load("schools-repository");
+        var schoolsGridView = controls.buildGridView("#schools-repository", schoolsData);
+        schoolsGridView.render();
+
+    </script>
+</body>
+</html>

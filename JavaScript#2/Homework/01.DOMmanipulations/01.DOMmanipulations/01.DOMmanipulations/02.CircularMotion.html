@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <button type="button" onclick="Start()">Start!</button>
+    <button type="button" onclick="Stop()">Stop!</button>
+    <button type="button" onclick="Increase()">Increase speed!</button>
+    <button type="button" onclick="Decrease()">Decrease speed!</button>
+        <button type="button" onclick="ChangeDirection()">Change direction!</button>
+
+    <script>
+        var divsAngle = new Array();
+        for (var i = 0; i < 5; i++) {
+            divsAngle.push(i * 360 / 5);
+        }
+
+        var divs = new Array();
+
+        var create = document.createDocumentFragment();
+        for (var i = 0; i < 5; i++) {
+            var div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.left = (screen.width / 2) - 50 + (Math.cos(divsAngle[i] * Math.PI / 180) * 100) + "px";
+            div.style.top = (screen.height / 2) - 150 + (Math.sin(divsAngle[i] * Math.PI / 180) * 100) + "px";
+            div.style.width = 40 + "px";
+            div.style.height = 40 + "px";
+            div.style.border = "solid";
+            div.style.borderWidth = 1 + "px";
+            div.style.borderRadius = 50 + "px";
+            divs.push(div);
+            create.appendChild(div);
+        }
+        document.body.appendChild(create);
+
+        var angle = 0.5;
+        var p;
+        var direction="right";
+
+        function Start() {
+            clearInterval(p);
+            p = setInterval(function () {
+                for (var i = 0; i < divs.length; i++) {
+                    divsAngle[i] = (divsAngle[i] + angle) % 360;
+                    divs[i].style.left = (screen.width / 2) - 50 + (Math.cos(divsAngle[i] * Math.PI / 180) * 100) + "px";
+                    divs[i].style.top = (screen.height / 2) - 150 + (Math.sin(divsAngle[i] * Math.PI / 180) * 100) + "px";
+                    create.appendChild(divs[i]);
+                }
+                document.body.appendChild(create);
+            }, 1);
+
+            console.log(angle);
+        }
+
+        function Stop() {
+            clearInterval(p);
+        }
+
+        function Increase() {
+            if (angle > 0) {
+                angle += 0.1;
+            }
+            else if (angle < 0) {
+                angle -= 0.1;
+            }
+            else {
+                if (direction == "right") {
+                    angle += 0.1;
+                }
+                else {
+                    angle -= 0.1;
+                }
+            }
+
+            if (angle > 0 && angle < 0.1) {
+                angle = 0;
+            }
+            console.log(angle);
+        }
+
+        function Decrease() {
+            if (angle > 0) {
+                angle -= 0.1;
+            }
+            else if (angle < 0) {
+                angle += 0.1;
+            }
+                
+            if (angle > 0 && angle < 0.1)
+            {
+                angle = 0;
+            }
+            console.log(angle);
+        }
+
+        function ChangeDirection()
+        {
+            angle *= -1;
+            if(direction=="right")
+            {
+                direction = "left";
+            }
+            else
+            {
+                direction = "right";
+            }
+        }
+
+    </script>
+</body>
+</html>

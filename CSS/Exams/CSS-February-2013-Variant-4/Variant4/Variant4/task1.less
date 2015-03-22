@@ -1,0 +1,72 @@
+﻿body, div, h1, img, p {
+    margin: 0;
+    padding: 0;
+}
+
+.linear-gradient(@from-color,@to-color,@from-percent,@to-percent) {
+    background: -moz-linear-gradient(top, @from-color @from-percent, @to-color @to-percent); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-percent,@from-color), color-stop(@to-percent,@to-color)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* IE10+ */
+    background: linear-gradient(to bottom, @from-color @from-percent,@to-color @to-percent); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-8 */
+}
+
+body {
+    font-family: Constantina, Georgia, 'Nimbus Roman No9 L', serif;
+    font-size: 16px;
+
+    #wrapper {
+        width: 960px;
+
+        div {
+            margin: 25px;
+            width: 933px;
+            height: 208px;
+            border: 1px solid black;
+            border-radius: 15px;
+            .linear-gradient(#de28ff,#f9dbff,0%,100%);
+
+            h1 {
+                margin-left: 35px;
+                margin-top: 15px;
+                font-size: 29px;
+            }
+
+            p {
+                &.postedby {
+                    display: block;
+                    width: 366px;
+                    margin-top: 5px;
+                    margin-left: 50px;
+                    padding: 5px 15px 5px 15px;
+                    border: 1px solid black;
+                    border-radius: 0;
+                    border-left: none;
+                    border-right: none;
+                }
+
+                &.info {
+                    display: block;
+                    width: 863px;
+                    margin-left: 35px;
+                    text-align:justify;
+                    margin-top:21px;
+                }
+            }
+
+            img {
+                margin-top: 34px;
+
+                &.left-arrow {
+                    float: left;
+                }
+
+                &.right-arrow {
+                    float: right;
+                }
+            }
+        }
+    }
+}

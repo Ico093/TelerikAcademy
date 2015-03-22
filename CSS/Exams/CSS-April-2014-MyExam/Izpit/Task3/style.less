@@ -1,0 +1,126 @@
+﻿body, html, div, header, h1, nav, ul, li, a, article {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-size: 18px;
+    font-family: Arial;
+    margin: 8px;
+}
+
+.linear-gradient(@from-color,@to-color,@from-percent,@to-percent) {
+    background: -moz-linear-gradient(top, @from-color @from-percent, @to-color @to-percent); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-percent,@from-color), color-stop(@to-percent,@to-color)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, @from-color @from-percent,@to-color @to-percent); /* IE10+ */
+    background: linear-gradient(to bottom, @from-color @from-percent,@to-color @to-percent); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-8 */
+}
+
+
+#root {
+    width: 610px;
+    color: #2aa0bd;
+
+    h1 {
+        font-size: 34px;
+        font-style: italic;
+        text-align: center;
+    }
+
+    div.chat-container {
+        float: left;
+        margin: 23px 0px;
+        width: 300px;
+        height: 500px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        .linear-gradient(#4ae871,#f1ffbc,40%,60%);
+
+        h2 {
+            width: 300px;
+            text-align: center;
+        }
+
+        div.messages {
+            ul {
+                margin: 40px 15px 0px 15px;
+                list-style: none;
+
+                li {
+                    border-bottom: 1px solid black;
+
+                    strong {
+                        display: block;
+                        font-size: 16px;
+                        font-weight: bold;
+                        font-style: italic;
+                    }
+
+                    span {
+                        display: block;
+                    }
+
+                    &:last-of-type {
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        div.sent-message {
+            clear: both;
+            position:absolute;
+            top:545px;
+            margin-left:5px;
+            border:1px solid grey;
+        }
+    }
+
+    #me {
+        margin-right: 5px;
+
+        ul {
+            li {
+                &.me {
+                    width: 270px;
+                }
+
+                &.other {
+                    float: right;
+
+                    span {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+
+    #other {
+        ul {
+            li {
+                &.me {
+                    float: left;
+                }
+
+                &.other {
+                    width: 270px;
+                    float: right;
+
+                    strong {
+                        float: right;
+                    }
+
+                    span {
+                        clear: both;
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+}

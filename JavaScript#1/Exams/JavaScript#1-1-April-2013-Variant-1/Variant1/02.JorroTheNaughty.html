@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function Solve(params) {
+            var split = params[0].split(" ");
+            var N = parseInt(split[0]);
+            var M = parseInt(split[1]);
+            var J = parseInt(split[2]);
+
+            var split = params[1].split(" ");
+            var StartN = parseInt(split[0]);
+            var StartM = parseInt(split[1]);
+
+
+            var matrix = new Array();
+            var count = 1;
+            for (var i = 0; i < N; i++) {
+                matrix.push(new Array());
+                for (var j = 0; j < M; j++) {
+                    matrix[i].push(count);
+                    count++;
+                }
+            }
+
+            var isOut = false;
+            var isCaught = false;
+            var sum = 0;
+            var num = 0;
+
+            sum += matrix[StartN][StartM];
+            matrix[StartN][StartM] = 0;
+
+            while (!isCaught && !isOut) {
+                for (var i = 2; i < J + 2; i++) {
+                    num++;
+                    split = params[i].split(" ");
+                    split[0] = parseInt(split[0]);
+                    split[1] = parseInt(split[1]);
+
+                    StartN += split[0];
+                    StartM += split[1];
+
+                    if (StartN >= 0 && StartN < N && StartM >= 0 && StartM < M) {
+                        if (matrix[StartN][StartM] != 0) {
+                            sum += matrix[StartN][StartM];
+                            matrix[StartN][StartM] = 0;
+                        }
+                        else {
+                            isCaught = true;
+                            break;
+                        }
+                    }
+                    else {
+                        isOut = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isCaught) {
+                return "caught " + num;
+            }
+            else {
+                return "escaped " + sum;
+            }
+        }
+
+        Array.prototype.clean = function () {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == "") {
+                    this.splice(i, 1);
+                    i--;
+                }
+            }
+            return this;
+        }
+
+
+        var arr = new Array();
+        arr.push("6 7 3");
+        arr.push("0 0");
+        arr.push("(2,2)");
+        arr.push("(-2,2)");
+        arr.push("(3,-1)");
+
+        console.log(Solve(arr));
+
+    </script>
+</body>
+</html>

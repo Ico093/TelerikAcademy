@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that groups an array of persons by age, first or last name. The function must return an associative array, with keys - the groups, and values -arrays with persons in this groups
+Use function overloading (i.e. just one function)
+    </title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var persons = [
+            Person("Gosho", "Petrov", 32),
+            Person("Bay", "Ivan", 81),
+            Person("Pesho", "Djibrev", 54),
+            Person("Dobrin", "Karaivanov", 18),
+            Person("Ivan", "Petrov", 18),
+            Person("Dobrin", "Dechkov", 54)];
+
+        debugger;
+        var groupedByFname = group(persons, "firstName");
+        var groupedByAge = group(persons, "age");
+
+        jsConsole.writeLine("Grouped by first name:")
+        for (var prop in groupedByFname) {
+            jsConsole.writeLine(prop+": "+groupedByFname[prop].join(", "));
+        }
+
+        jsConsole.writeLine();
+        jsConsole.writeLine("Grouped by age:")
+        for (var prop in groupedByAge) {
+            jsConsole.writeLine(prop + ": " + groupedByAge[prop].join(", "));
+        }
+
+        function Person(fName, lName, age) {
+            return {
+                firstName: fName,
+                lastName: lName,
+                age: age,
+                toString: function () {
+                    return fName + " " + lName;
+                }
+            }
+        }
+
+        function group(arr, property) {
+            var associativeArr = {};
+            for (var i = 0; i < arr.length; i++) {
+                if(associativeArr[arr[i][property]])
+                {
+                    associativeArr[arr[i][property]].push(arr[i]);
+                }
+                else
+                {
+                    associativeArr[arr[i][property]] = [arr[i]];
+                }
+            }
+            return associativeArr;
+        }
+    </script>
+</body>
+</html>

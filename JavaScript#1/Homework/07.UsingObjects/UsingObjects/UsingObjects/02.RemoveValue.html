@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write a function that removes all elements with a given value
+
+Attach it to the array class
+Read about prototype and how to attach methods
+    </title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <label for="text1">Enter an array.</label>
+    <input type="text" id="text1" />
+
+    <label for="number">Enter number you would like to delete.</label>
+    <input type="text" id="number" />
+
+    <button type="button" onclick="Start()">Remove</button>
+
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Start() {
+            var number = parseInt(document.getElementById("number").value);
+            var seq = document.getElementById("text1").value.parseSeq().Remove(number);
+
+            jsConsole.writeLine("New array: " + seq.join(", "));
+        }
+
+        Array.prototype.Remove = function (x) {
+            var newSeq = new Array();
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] != x) {
+                    newSeq.push(this[i]);
+                }
+            }
+            return newSeq;
+        }
+
+        String.prototype.parseSeq = function () {
+            var seq = this.split(",");
+            var sequence = new Array();
+            for (var i = 0; i < seq.length; i++) {
+                seq[i] = seq[i].trim();
+                if (seq[i] != "") {
+                    sequence.push(parseInt(seq[i]));
+                }
+            }
+            return sequence;
+        }
+
+    </script>
+</body>
+</html>

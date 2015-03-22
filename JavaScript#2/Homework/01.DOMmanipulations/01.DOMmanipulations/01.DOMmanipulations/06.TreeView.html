@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .block {
+            display: block;
+        }
+
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="first">
+        <li>Item</li>
+        <li>Item
+            <ul>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Subasdasdadsasd Item
+                     <ul>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                     </ul>
+                    <ul>
+                        <li>Sub Item</li>
+                        <li>Sub Item</li>
+                        <li>Sub Item</li>
+                        <li>Sub Item</li>
+                        <li>Sub Item</li>
+                        <li>Sub Item</li>
+                    </ul>
+                </li>
+                <li>Sub Item</li>
+            </ul>
+            <ul>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+            </ul>
+        </li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item
+            <ul>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item
+                     <ul>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                     </ul>
+                </li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+            </ul>
+        </li>
+        <li>Item</li>
+        <li>Item</li>
+        <li>Item
+            <ul>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+                <li>Sub Item
+                     <ul>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                         <li>Sub Item</li>
+                     </ul>
+                </li>
+                <li>Sub Item</li>
+                <li>Sub Item</li>
+            </ul>
+        </li>
+        <li>Item</li>
+        <li>Item</li>
+    </ul>
+
+    <script>
+        function change(event) {
+            if (this === event.target) {
+                var uls = event.target.childNodes;
+                for (var i = 0; i < uls.length; i++) {
+                    if (uls[i].nodeName === "UL") {
+                        if (uls[i].className == "none") {
+                            uls[i].className = "block";
+                        }
+                        else {
+                            uls[i].className = "none";
+                        }
+                    }
+                }
+            }
+        }
+
+        var ul = document.getElementsByTagName("ul");
+
+        for (var i = 0; i < ul.length; i++) {
+            ul[i].className = "none";
+        }
+
+        document.getElementById("first").className = "block";
+
+        var childs = document.getElementById("first").getElementsByTagName("li");
+        for (var j = 0; j < childs.length; j++) {
+            childs[j].addEventListener("click", change, false);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <label for="text">Enter ellipse or rect and hit Create!</label>
+    <input type="text" id="text" />
+    <button type="button" onclick="addDIV()">Create!</button>
+    <script>
+        var objects = new Array();
+        var movingShapes = movingShape();
+
+        function getRandomRGB() {
+            return "rgb(" + Math.random() * 256 + "," + Math.random() * 256 + "," + Math.random() * 256 + ")";
+        }
+
+        function moveSquare() {
+            var obj = this;
+            var minX = 100;
+            var minY = 50;
+            var maxX = window.innerWidth - 100;
+            var maxY = window.innerHeight - 200;
+
+            debugger;
+
+            switch (obj.direction) {
+                case "down":
+                    {
+                        if (obj.y < maxY) {
+                            obj.y++;
+                        }
+                        else {
+                            obj.y = maxY;
+                            obj.direction = "right";
+                        }
+
+                        obj.div.style.top = obj.y + "px";
+                        break;
+                    }
+                case "right":
+                    {
+                        if (obj.x < maxX) {
+                            obj.x++;
+                        }
+                        else {
+                            obj.x = maxX;
+                            obj.direction = "up";
+                        }
+
+                        obj.div.style.left = obj.x + "px";
+                        break;
+                    }
+                case "up":
+                    {
+                        if (obj.y > minY) {
+                            obj.y--;
+                        }
+                        else {
+                            obj.y = minY;
+                            obj.direction = "left";
+                        }
+
+                        obj.div.style.top = obj.y + "px";
+                        break;
+                    }
+                case "left":
+                    {
+                        if (obj.x > minX) {
+                            obj.x--;
+                        }
+                        else {
+                            obj.x = minX;
+                            obj.direction = "down";
+                        }
+
+                        obj.div.style.left = obj.x + "px";
+                        break;
+                    }
+            }
+
+        }
+
+        function moveCircle() {
+            var obj = this;
+            obj.angle = (obj.angle + 2 * Math.PI / 720) % (2 * Math.PI);
+            obj.div.style.left = (window.innerWidth / 2)-25 + (Math.cos(obj.angle) * 100) + "px";
+            obj.div.style.top = (window.innerHeight / 2) - 50 + (Math.sin(obj.angle) * 100) + "px";
+        }
+
+        function movingShape() {
+            function add(whatMovement) {
+                var div = document.createElement("div");
+                div.style.width = 40 + "px";
+                div.style.height = 40 + "px";
+                div.style.border = "solid";
+                div.style.borderWidth = 2 + "px";
+                div.style.color = getRandomRGB();
+                div.style.backgroundColor = getRandomRGB();
+                div.style.borderColor = getRandomRGB();
+                div.style.position = "absolute";
+
+                if (whatMovement == "rect") {
+                    var x = 50;
+                    var y = 100;
+
+                    div.style.left = x + "px";
+                    div.style.top = y + "px";
+
+                    objects.push({
+                        div: div,
+                        x: x,
+                        y: y,
+                        direction: "down",
+                        move: moveSquare
+                    });
+
+                    document.body.appendChild(div);
+                }
+                else if (whatMovement == "ellipse") {
+                    var x = 200;
+                    var y = 100;
+
+                    div.style.left = x + "px";
+                    div.style.top = y + "px";
+
+                    div.style.borderRadius = 20 + "px";
+
+                    objects.push({
+                        div: div,
+                        angle: 0,
+                        move: moveCircle
+                    });
+
+                    document.body.appendChild(div);
+                }
+                else {
+                    throw "No such movement";
+                }
+            }
+
+            return {
+                add: add
+            }
+        }
+
+        function addDIV() {
+            var text = document.getElementById("text").value;
+            if (text == "ellipse" || text == "rect") {
+                movingShapes.add(text);
+            }
+        }
+
+        setInterval(function () {
+            for (var i = 0; i < objects.length; i++) {
+                objects[i].move();
+            }
+        }, 1);
+    </script>
+</body>
+</html>

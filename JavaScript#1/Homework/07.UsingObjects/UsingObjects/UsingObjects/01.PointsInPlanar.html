@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write functions for working with shapes in  standard Planar coordinate system
+Points are represented by coordinates P(X, Y)
+Lines are represented by two points, marking their beginning and ending
+L(P1(X1,Y1),P2(X2,Y2))
+Calculate the distance between two points
+Check if three segment lines can form a triangle
+    </title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+    <style>
+        body, div, label, p, input {
+            margin: 0;
+            padding: 0;
+        }
+
+        input, p {
+            display: inline-block;
+        }
+
+        input {
+            width: 20px;
+        }
+
+        p {
+            width: 20px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 20px;
+            margin-right: 150px;
+        }
+
+        #js-console {
+            float: left;
+        }
+
+            #js-console p {
+            width:auto;
+            }
+
+        #wrapper {
+            width: 150px;
+            float: left;
+            margin-left: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <label for="point1x">Point1</label>
+        <p>X:</p>
+        <input type="text" id="point1x" />
+        <p>Y:</p>
+        <input type="text" id="point1y" />
+        <label for="point2x">Point2</label>
+        <p>X:</p>
+        <input type="text" id="point2x" />
+        <p>Y:</p>
+        <input type="text" id="point2y" />
+        <label for="point3x">Point3</label>
+        <p>X:</p>
+        <input type="text" id="point3x" />
+        <p>Y:</p>
+        <input type="text" id="point3y" />
+        <label for="point4x">Point4</label>
+        <p>X:</p>
+        <input type="text" id="point4x" />
+        <p>Y:</p>
+        <input type="text" id="point4y" />
+        <label for="point5x">Point5</label>
+        <p>X:</p>
+        <input type="text" id="point5x" />
+        <p>Y:</p>
+        <input type="text" id="point5y" />
+        <label for="point6x">Point6</label>
+        <p>X:</p>
+        <input type="text" id="point6x" />
+        <p>Y:</p>
+        <input type="text" id="point6y" />
+        <button type="button" id="myButton" onclick="Start()">Execute!</button>
+    </div>
+
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        function Start() {
+            var point1 = Point(document.getElementById("point1x").value, document.getElementById("point1y").value);
+            var point2 = Point(document.getElementById("point2x").value, document.getElementById("point2y").value);
+            var point3 = Point(document.getElementById("point3x").value, document.getElementById("point3y").value);
+            var point4 = Point(document.getElementById("point4x").value, document.getElementById("point4y").value);
+            var point5 = Point(document.getElementById("point5x").value, document.getElementById("point5y").value);
+            var point6 = Point(document.getElementById("point6x").value, document.getElementById("point6y").value);
+
+            var line1 = Line(point1, point2);
+            var line2 = Line(point3, point4);
+            var line3 = Line(point5, point6);
+
+
+            jsConsole.write("With lines " + line1 + " " + line2 + " " + line3);
+
+            if (isTriangle(DistanceBetweenPoints(point1, point2), DistanceBetweenPoints(point3, point4), DistanceBetweenPoints(point5, point6))) {
+                jsConsole.writeLine(" can be made a triangle.");
+            }
+            else {
+                jsConsole.writeLine(" can't be made a triangle.");
+            }
+        }
+
+        function Point(x, y) {
+            return {
+                x: x,
+                y: y,
+                toString: function () {
+                    return "Point(" + x + "," + y + ")";
+                }
+            }
+        }
+
+        function Line(x, y) {
+            return {
+                pointX: x,
+                pointY: y,
+                toString: function () {
+                    return "Line(" + x + "," + y + ")";
+                }
+            }
+        }
+
+        function DistanceBetweenPoints(point1, point2) {
+            return Math.sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y));
+        }
+
+        function isTriangle(a, b, c) {
+            if (a <= b + c && b <= a + c && c <= a + b) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
